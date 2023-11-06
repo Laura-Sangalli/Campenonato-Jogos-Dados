@@ -1,6 +1,12 @@
 public interface Estatistica {
     public static final short numFaces = (short) 6;
 
-    public int somarFacesSorteadas(Dado dados[]);
+    public static int somarFacesSorteadas(Dado dados[]){
+        int soma = 0;
+        for(Dado dado: dados){
+            soma += dado.getSideUp();
+        }
+        return soma;
+    }
     
 }
