@@ -45,11 +45,11 @@ public class JogoGeneral implements Serializable{
     }
 
     
-    public void alterarSituacaoDaRodada(int rodadaAtual){//muda a rodada para indicar que a mesma ja foi escolhida
-        if (rodadaAtual >= 1 && rodadaAtual <= 13) {
-            rodadas[rodadaAtual - 1] = 0;
-        }
-    }
+    // public void alterarSituacaoDaRodada(int rodadaAtual){//muda a rodada para indicar que a mesma ja foi escolhida
+    //     if (rodadaAtual >= 1 && rodadaAtual <= 13) {
+    //         rodadas[rodadaAtual - 1] = 0;
+    //     }
+    // }
 
     public void resetarJogadaDaMaquina(int jogadaEscolhida){
         rodadas[jogadaEscolhida - 1] = -1;   
@@ -228,7 +228,8 @@ public class JogoGeneral implements Serializable{
         }
 
         if (escolha >= 1 && escolha <= 13) {
-                rodadas[escolha - 1] = soma;
+            // alterarSituacaoDaRodada(escolha);
+            rodadas[escolha - 1] = soma;
         }
         return soma;
     }
