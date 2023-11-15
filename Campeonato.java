@@ -1,7 +1,9 @@
 import java.util.Scanner;
 
-public class Campeonato {
+public class Campeonato{
     private Jogador jogadores[] = new Jogador[10];
+    private String cpf, conta, agencia;
+    private int numeroBanco;
 
     private static Scanner teclado = new Scanner(System.in);
 
@@ -37,15 +39,20 @@ public class Campeonato {
 
         // solicita ao usuário o tipo de jogador que está sendo adicionado
         System.out.println("Digite o Tipo do Jogador (H/M)");
-        double saldo = teclado.next().charAt(0);
-
+        double tipo = teclado.next().charAt(0);
+        double saldo = 0;
         // verifica se o tipo do jogador informado é válido, ou seja, humano (h ou H) ou máquina (m ou M)
 
         // verifica a situação do vetor de jogadores 
         for(int i=0;i<10;i++){
             // se a posição for nula, inicializa uma instância da classe Jogador 
             if(jogadores[i] == null){
-                jogadores[i] = new Jogador(nome, saldo);
+                if(tipo == 'H'){
+                    jogadores[i] = new Humano(nome, saldo, cpf, agencia, conta, numeroBanco);
+                }
+                else if(tipo == 'M'){
+                    jogadores[i] = new Maquina(nome, saldo);
+                }
                 System.out.println("Jogador inserido com sucesso");
                 return;
             }

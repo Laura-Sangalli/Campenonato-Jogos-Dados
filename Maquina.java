@@ -1,7 +1,8 @@
-public class Maquina implements JogarComoMaquina{
+public class Maquina extends Jogador implements JogarComoMaquina{
     String nome;
 
-    public Maquina(String nome){
-        this.nome = nome;
+    public Maquina(String nome, double saldo){
+        super(nome, saldo);
+
     }
 }

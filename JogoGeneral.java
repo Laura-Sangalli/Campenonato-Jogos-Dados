@@ -1,10 +1,12 @@
 import java.io.Serializable;
 
-public class JogoGeneral implements Serializable{
+public class JogoGeneral extends JogoDados implements Serializable{
     private Dado dados[] = new Dado[5];
     private int rodadas[] = new int[13];
 
-    public JogoGeneral(){//inicia o jodo general com a quantidade de dados e o numero de rodadas
+    public JogoGeneral(double saldo){//inicia o jodo general com a quantidade de dados e o numero de rodadas
+        super(5, "JogoG", saldo);
+        
         for(int i=0; i<5; i++){
             this.dados[i] = new Dado();
         }

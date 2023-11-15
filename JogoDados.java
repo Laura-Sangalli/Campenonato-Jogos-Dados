@@ -1,10 +1,10 @@
 public abstract class JogoDados{
     int numDados;
     String nomeJogo;
-    float saldo;
+    double saldo;
     Dado[] dados;
 
-    public JogoDados(int numDados, String nomeJogo, float saldo) {
+    public JogoDados(int numDados, String nomeJogo, double saldo) {
         this.numDados = numDados;
         this.nomeJogo = nomeJogo;
         this.saldo = saldo;
