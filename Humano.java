@@ -18,6 +18,7 @@ public class Humano extends Jogador implements JogarComoHumano{
         int jogoEscolhido = Jogador.escolherJogo();
 
         if(jogoEscolhido == 1){ //jogoGeneral
+            
             JogarComoHumano.escolherJogadas(jogoG);
         }
         else if(jogoEscolhido == 2){

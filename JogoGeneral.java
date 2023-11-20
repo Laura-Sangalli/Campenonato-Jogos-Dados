@@ -26,11 +26,7 @@ public class JogoGeneral extends JogoDados implements Serializable{
     }
 
     public String toString(){
-        String valores = "Os valores obtidos são: ";
-        for (int i=0;i<5;i++){
-             valores += this.dados[i].getSideUp() + " - ";
-        } 
-        return valores;
+       return super.toString();
     }
 
     public boolean validarRodada(int rodadaAtual){//verifica se a rodada ja foi escolhida anteriormente
