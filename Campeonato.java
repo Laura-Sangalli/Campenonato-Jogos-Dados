@@ -94,31 +94,16 @@ public class Campeonato{
     }
 
     public void iniciarCampeonato(){
-        // antes de iniciar o campeonato, reseta-se as jogadas para todos os jogadores existentes. Dessa forma elimina-se o risco de 
-        //um jogador, humano ou máquina, continuar com as mesmas jogadas, pontuação e valores dos dados de campeonatos anteriores. Ou 
-        //seja, pode-se jogar várias vezes com os mesmos jogadores (instâncias da classe Jogador) definidas
-        for(Jogador jogador : jogadores){
-            if(jogador != null){
-                jogador.getReset();
+        // antes de in
+        double maiorSaldo = 0;
+        while(maiorSaldo > 0){
+            for(Jogador jogador : jogadores){
+                //
+
+                if(jogador.atualizaSaldo(maiorSaldo);)
             }
         }
-        if(jogadores[0] == null){//verifica se tem algum jogador
-            System.out.println("Adicione um jogador");
-        }
-        else{
-            for(int i=0;i<13;i++){//numero de rodadas
-                for(int j=0;j<10;j++){//numero de jogadores
-                    if(jogadores[j] != null){
-                        // os métodos atríbuidos a "jogador[j]" abaixo estão explicados na classe Jogador
-                        System.out.println(jogadores[j].getNome() + " está rolando os dados");
-                        jogadores[j].jogarDados();
-                        jogadores[j].escolherJogadas();
-                        jogadores[j].mostrarJogadasExecutadas();
-                        System.out.println("\n\n");
-                    }
-                }
-            }
-        }
+        
     }
 
     public void mostrarCartela(){

@@ -6,10 +6,15 @@ public abstract class Jogador {
     public Jogador(String nome, double saldo){
         this.nome = nome;
         this.saldo = saldo;
+     
     }
 
-    public void jogarDados(){
-
+    public void jogarDados(int jogoEscolhido){
+        // jogoEscolhido == 1 : jogoGeneral
+        // jogoEscolhido == 2 : jogoAzar
+        for(JogoDados jogo : jogos){
+            
+        }
     }
 
     public String toString(){
@@ -23,7 +28,10 @@ public abstract class Jogador {
     }
 
     public void atualizaSaldo(double saldo){
-        
+        this.saldo = saldo;
+
     }
+
+    public double getSaldo(){ return this.saldo;}
 
 }

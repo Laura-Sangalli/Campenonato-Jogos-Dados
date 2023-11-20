@@ -28,7 +28,7 @@ public interface JogarComoHumano {
         if(value >= 1 && value <= 13){
             if(jogo.validarRodada(value)){
                 jogo.pontuarRodada(value);
-            }
+                }
 
         }
     }

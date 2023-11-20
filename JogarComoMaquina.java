@@ -1,5 +1,5 @@
 public interface JogarComoMaquina {
-    public static boolean aplicarEstrategia(JogoGeneral jogo){
+    public static void aplicarEstrategia(JogoGeneral jogo){
         int jogadaDeMaiorPontuacao = 0;
         int maiorPontuacao = -1;
         for(int i = 1; i<= 12; i++){
