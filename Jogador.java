@@ -1,3 +1,5 @@
+import java.util.Scanner;
+
 public abstract class Jogador {
     private String nome;
     private double saldo;
@@ -9,13 +11,25 @@ public abstract class Jogador {
      
     }
 
-    public void jogarDados(int jogoEscolhido){
-        // jogoEscolhido == 1 : jogoGeneral
-        // jogoEscolhido == 2 : jogoAzar
-        for(JogoDados jogo : jogos){
+    public static int escolherJogo(){
+        int value=0;
+        Scanner scanner = new Scanner(System.in);
             
+        while(value != 1 || value != 2){   
+            System.out.println("Informe o número correspondente a qual jogo voce deseja apostar: \n1 - Jogo Azar; \n2 - Jogo General.");
+            value = scanner.nextInt();
+            scanner.close();
+
+            if(value != 1 || value != 2){
+                System.out.println("O valor innformado eh invalido!");
+            }
         }
+
+        return value;
+        
     }
+
+    public abstract void jogarDados();
 
     public String toString(){
         String str = "";

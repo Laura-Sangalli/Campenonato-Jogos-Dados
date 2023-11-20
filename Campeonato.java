@@ -4,6 +4,7 @@ public class Campeonato{
     private Jogador jogadores[] = new Jogador[10];
     private String cpf, conta, agencia;
     private int numeroBanco;
+    private double saldo;
 
     private static Scanner teclado = new Scanner(System.in);
 
@@ -97,10 +98,15 @@ public class Campeonato{
         // antes de in
         double maiorSaldo = 0;
         while(maiorSaldo > 0){
-            for(Jogador jogador : jogadores){
+            for(int i=0;i<10;i++){
                 //
+                if(jogadores[i] instanceof Humano){
+                    JogarComoHumano.escolherJogada(null);
+                } 
 
-                if(jogador.atualizaSaldo(maiorSaldo);)
+                if(jogador.getSaldo() > maiorSaldo){
+                    maiorSaldo = jogador.getSaldo();
+                }
             }
         }
         
