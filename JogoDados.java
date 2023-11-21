@@ -17,7 +17,15 @@ public abstract class JogoDados{
         }
     }
 
-    public abstract String toString();
+    public String toString(){
+  
+        String valores = "Os valores obtidos são: ";
+        for (int i=0;i<5;i++){
+             valores += this.dados[i].getSideUp() + " - ";
+        } 
+        return valores;
+
+    }
 
 
 }

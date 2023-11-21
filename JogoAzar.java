@@ -9,12 +9,11 @@ public class JogoAzar extends JogoDados{
     }
 
     public String toString(){
-        String valores = "Os valores obtidos são: \n";
-        valores += this.dados[0].getSideUp() + "-" + this.dados[0].getSideUp();
-        return valores;
+        return super.toString();
     }
 
     public void resultado(){
+        rolarDados();
         int res = dados[0].getSideUp() + dados[1].getSideUp();
         System.out.println("A soma é:" + res);
         if(res == 7 || res == 11){
