@@ -40,18 +40,21 @@ public class Campeonato{
 
         // solicita ao usuário o tipo de jogador que está sendo adicionado
         System.out.println("Digite o Tipo do Jogador (H/M)");
-        double tipo = teclado.next().charAt(0);
-        double saldo = 0;
+        char tipo = teclado.next().charAt(0);
+
+        if(checarTipo(tipo) == false){
+            System.out.println("Tipo invalido");
+        }
         // verifica se o tipo do jogador informado é válido, ou seja, humano (h ou H) ou máquina (m ou M)
 
         // verifica a situação do vetor de jogadores 
         for(int i=0;i<10;i++){
             // se a posição for nula, inicializa uma instância da classe Jogador 
             if(jogadores[i] == null){
-                if(tipo == 'H'){
+                if(tipo == 'H' || tipo == 'h'){
                     jogadores[i] = new Humano(nome, saldo, cpf, agencia, conta, numeroBanco);
                 }
-                else if(tipo == 'M'){
+                else if(tipo == 'M' || tipo == 'm'){
                     jogadores[i] = new Maquina(nome, saldo);
                 }
                 System.out.println("Jogador inserido com sucesso");
@@ -83,7 +86,7 @@ public class Campeonato{
         // ... porém, se estiver, remove o jogador da lista
         else{
             for(int i=0;i<10;i++){
-                // verifica se o jogador existe antes de removê-lo e comunicao sucesso da operação
+                // verifica se o jogador existe antes de removê-lo e comunicar sucesso da operação
                 if(jogadores[i] != null && jogadores[i].getNome().equals(nome)){ 
                     jogadores[i] = null;
                     System.out.println("Jogador " + nome + " Removido\n");
@@ -97,15 +100,15 @@ public class Campeonato{
     public void iniciarCampeonato(){
         // antes de in
         double maiorSaldo = 0;
-        while(maiorSaldo > 0){
+        while(maiorSaldo >= 0){
             for(int i=0;i<10;i++){
                 //
                 if(jogadores[i] instanceof Humano){
-                    JogarComoHumano.escolherJogada(null);
+                    jogadores[i].jogarDados();
                 } 
 
-                if(jogador.getSaldo() > maiorSaldo){
-                    maiorSaldo = jogador.getSaldo();
+                if(jogadores[i].getSaldo() > maiorSaldo){
+                    maiorSaldo = jogadores[i].getSaldo();
                 }
             }
         }

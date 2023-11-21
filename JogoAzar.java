@@ -8,12 +8,6 @@ public class JogoAzar extends JogoDados{
         }
     }
 
-    public void rolarDados(){
-        for(Dado dado : this.dados){
-            dado.roll();
-        }
-    }
-
     public String toString(){
         String valores = "Os valores obtidos são: \n";
         valores += this.dados[0].getSideUp() + "-" + this.dados[0].getSideUp();

@@ -21,12 +21,10 @@ public abstract class Jogador {
             scanner.close();
 
             if(value != 1 || value != 2){
-                System.out.println("O valor innformado eh invalido!");
+                System.out.println("O valor informado eh invalido!");
             }
         }
-
-        return value;
-        
+        return value;        
     }
 
     public abstract void jogarDados();
@@ -43,9 +41,14 @@ public abstract class Jogador {
 
     public void atualizaSaldo(double saldo){
         this.saldo = saldo;
-
     }
 
-    public double getSaldo(){ return this.saldo;}
+    public double getSaldo(){ 
+        return this.saldo;
+    }
+
+    public String getNome(){//função para pegar o nome de um jogador
+        return nome;
+    }
 
 }

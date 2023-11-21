@@ -17,12 +17,17 @@ public class Humano extends Jogador implements JogarComoHumano{
     public void jogarDados(){
         int jogoEscolhido = Jogador.escolherJogo();
 
-        if(jogoEscolhido == 1){ //jogoGeneral
-            JogarComoHumano.escolherJogadas(jogoG);
-        }
-        else if(jogoEscolhido == 2){
-            jogoA.rolarDados();
-            jogoA.resultado();
+        while(jogoEscolhido != 1 || jogoEscolhido != 2){
+            if(jogoEscolhido == 1){ //jogoGeneral
+                JogarComoHumano.escolherJogadas(jogoG);
+            }
+            else if(jogoEscolhido == 2){
+                jogoA.rolarDados();
+                jogoA.resultado();
+            }
+            else{
+                System.out.println("Escolha um jogo válido");
+            }
         }
     }
 
