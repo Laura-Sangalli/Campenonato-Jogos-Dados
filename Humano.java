@@ -3,7 +3,7 @@ import java.util.Scanner;
 public class Humano extends Jogador implements JogarComoHumano{
     private String cpf, agencia, conta;
     private int numeroBanco;
-    private JogoGeneral jogoG;
+    private JogoGeneral jogoG = new JogoGeneral(100, agencia);
     private JogoAzar jogoA;
 
     public Humano(String nome, double saldo){
@@ -17,7 +17,6 @@ public class Humano extends Jogador implements JogarComoHumano{
     
     public void jogarDados(){
         int jogoEscolhido = Jogador.escolherJogo();
-
 
         if(jogoEscolhido == 1){ //jogoGeneral
             escolherJogadas();
