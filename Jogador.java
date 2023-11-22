@@ -15,13 +15,14 @@ public abstract class Jogador {
         Scanner scanner = new Scanner(System.in);
             
         while(value != 1 && value != 2){   
-            System.out.println("Informe o número correspondente a qual jogo voce deseja apostar: \n1 - Jogo Azar; \n2 - Jogo General.");
+            System.out.println("Informe o número correspondente a qual jogo voce deseja apostar: \n1 - Jogo General; \n2 - Jogo Azar.");
             value = scanner.nextInt();
             //scanner.close();
 
             if(value != 1 && value != 2){
                 System.out.println("O valor informado eh invalido!");
             }
+            
         }
         return value;        
     }

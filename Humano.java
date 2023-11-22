@@ -3,17 +3,16 @@ import java.util.Scanner;
 public class Humano extends Jogador implements JogarComoHumano{
     private String cpf, agencia, conta;
     private int numeroBanco;
-    private JogoGeneral jogoG = new JogoGeneral(100, "a");
+    private JogoGeneral jogoG;
     private JogoAzar jogoA;
-    
-    public Humano(String nome, double saldo, String cpf, String agencia, String conta, int numeroBanco){
+
+    public Humano(String nome, double saldo){
         super(nome, saldo);
         this.cpf = cpf;
         this.agencia = agencia;
         this.conta = conta;
         this.numeroBanco = numeroBanco;
-        // this.jogoG = new JogoGeneral(saldo, "Jogo General");
-        // this.jogoA = new JogoAzar(saldo);
+        this.jogoA = new JogoAzar(saldo);
     }
     
     public void jogarDados(){
@@ -21,9 +20,10 @@ public class Humano extends Jogador implements JogarComoHumano{
 
 
         if(jogoEscolhido == 1){ //jogoGeneral
-            
+            escolherJogadas();
         }
         else if(jogoEscolhido == 2){
+            jogoA.rolarDados();
             jogoA.resultado();
         }
         else{

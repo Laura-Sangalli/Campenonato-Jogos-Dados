@@ -9,10 +9,9 @@ public abstract class JogoDados implements Estatistica{
         this.nomeJogo = nomeJogo;
         this.saldo = saldo;
         this.dados = new Dado[numDados];
-        for(Dado dado : dados){
-            dado = new Dado();
+        for (int i = 0; i < numDados; i++) {
+            this.dados[i] = new Dado();
         }
-
     }
 
     public void rolarDados(){//joga os dados e obtem o resultado
