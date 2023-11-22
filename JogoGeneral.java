@@ -1,10 +1,11 @@
+import java.util.Scanner;
 import java.io.Serializable;
 
 public class JogoGeneral extends JogoDados implements Serializable{
     private Dado dados[] = new Dado[5];
     private int rodadas[] = new int[13];
 
-    public JogoGeneral(double saldo){//inicia o jodo general com a quantidade de dados e o numero de rodadas
+    public JogoGeneral(double saldo, String Jogo){//inicia o jodo general com a quantidade de dados e o numero de rodadas
         super(5, "JogoG", saldo);
         
         for(int i=0; i<5; i++){
@@ -224,6 +225,20 @@ public class JogoGeneral extends JogoDados implements Serializable{
             rodadas[escolha - 1] = soma;
         }
         return soma;
+
+    }
+    public static void main(String[] args){
+        JogoGeneral jogo = new JogoGeneral(100);
+        Dado dados[] = new Dado[5];
+        int choice;
+        Scanner scanner = new Scanner(System.in); 
+        for(int i=0; i<13; i++){
+            jogo.rolarDados();
+            System.out.println( dados[0].getSideUp() + " " + dados[1].getSideUp + " " + dados[2].getSideUp() + " " + dados[3].getSideUp + " " + dados[4].getSideUp);
+            System.out.println("Informe uma jogada que vc deseja jogar: ");
+            jogo.pontuarRodada(choice);
+            
+        }
     }
     
 }
