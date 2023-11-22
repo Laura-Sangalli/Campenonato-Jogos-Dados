@@ -20,10 +20,10 @@ public class Humano extends Jogador implements JogarComoHumano{
         int jogoEscolhido = Jogador.escolherJogo();
 
 
-        if(jogoEscolhido == 1){ //jogoGeneral
+        if(jogoEscolhido == 2){ //jogoGeneral
             escolherJogadas();
         }
-        else if(jogoEscolhido == 2){
+        else if(jogoEscolhido == 1){
             jogoA.rolarDados();
             jogoA.resultado();
         }
