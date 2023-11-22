@@ -102,13 +102,14 @@ public class Campeonato{
         double maiorSaldo = 0;
         while(maiorSaldo >= 0){
             for(int i=0;i<10;i++){
-                //
-                if(jogadores[i] instanceof Humano){
+                if(jogadores[i] != null){
+                    if(jogadores[i] instanceof Humano){
                     jogadores[i].jogarDados();
-                } 
+                    } 
 
-                if(jogadores[i].getSaldo() > maiorSaldo){
-                    maiorSaldo = jogadores[i].getSaldo();
+                    if(jogadores[i].getSaldo() > maiorSaldo){
+                        maiorSaldo = jogadores[i].getSaldo();
+                    }
                 }
             }
         }

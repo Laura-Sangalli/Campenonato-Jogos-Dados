@@ -15,19 +15,18 @@ public class Humano extends Jogador implements JogarComoHumano{
     
     public void jogarDados(){
         int jogoEscolhido = Jogador.escolherJogo();
-        
-        while(jogoEscolhido != 1 || jogoEscolhido != 2){
-            if(jogoEscolhido == 1){ //jogoGeneral
-                JogarComoHumano.escolherJogadas(jogoG);
-                this.jogoG = new JogoGeneral(this.getSaldo(), "Jogo General");
-            }
-            else if(jogoEscolhido == 2){
-                jogoA.rolarDados();
-                jogoA.resultado();
-            }
-            else{
-                System.out.println("Escolha um jogo válido");
-            }
+
+
+        if(jogoEscolhido == 1){ //jogoGeneral
+            
+            JogarComoHumano.escolherJogadas(jogoG);
+        }
+        else if(jogoEscolhido == 2){
+            jogoA.rolarDados();
+            jogoA.resultado();
+        }
+        else{
+            System.out.println("Escolha um jogo válido");
         }
     }
 
