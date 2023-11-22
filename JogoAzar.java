@@ -10,7 +10,7 @@ public class JogoAzar extends JogoDados{
     }
 
     public void resultado(){
-        rolarDados();
+        this.rolarDados();
         int res = dados[0].getSideUp() + dados[1].getSideUp();
         System.out.println("A soma é:" + res);
         if(res == 7 || res == 11){
@@ -24,7 +24,7 @@ public class JogoAzar extends JogoDados{
             res = 0;
             while (res != res1 && res !=2 && res != 3 && res != 12) {
                 System.out.println("Jogar Dados.\n");
-                rolarDados();
+                this.rolarDados();
                 res = dados[0].getSideUp() + dados[1].getSideUp();
                 System.out.println(toString());
                 System.out.println("A soma é:" + res);

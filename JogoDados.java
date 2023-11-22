@@ -1,7 +1,7 @@
 public abstract class JogoDados implements Estatistica{
-    int numDados;
-    String nomeJogo;
-    double saldo;
+    private int numDados;
+    private String nomeJogo;
+    private double saldo;
     Dado[] dados;
 
     public JogoDados(int numDados, String nomeJogo, double saldo) {
