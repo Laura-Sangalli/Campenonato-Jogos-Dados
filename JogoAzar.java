@@ -1,11 +1,8 @@
 public class JogoAzar extends JogoDados{
-    private Dado[] dados = new Dado[2];
+    //private Dado[] dados = new Dado[2];
 
     public JogoAzar(double saldo){
         super(2, "JogoAzar", saldo);
-        for(int i=0; i<2; i++){
-            this.dados[i] = new Dado();
-        }
     }
 
     public String toString(){

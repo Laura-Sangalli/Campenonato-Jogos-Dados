@@ -30,13 +30,20 @@ public class Campeonato{
     public void incluirJogador(){
 
         // escaneia o nome para o jogador fornecido pelo usuário 
-        System.out.println("Digite o nome do jogador");
+        System.out.println("Digite o nome do jogador:");
         String nome = teclado.next();
 
         // verifica se o nome do jogador já foi inserido anteriormente. Não podem haver jogadores com nomes iguais
         if(checarNome(nome)==true){
             System.out.println("Nome já inserido");
         }
+
+        System.out.println("Digite o seu saldo:");
+        double saldo = teclado.nextDouble();
+
+        /*System.out.println("Digite seu cpf:");
+
+        System.out.println("Digite ");*/
 
         // solicita ao usuário o tipo de jogador que está sendo adicionado
         System.out.println("Digite o Tipo do Jogador (H/M)");
@@ -52,7 +59,7 @@ public class Campeonato{
             // se a posição for nula, inicializa uma instância da classe Jogador 
             if(jogadores[i] == null){
                 if(tipo == 'H' || tipo == 'h'){
-                    jogadores[i] = new Humano(nome, saldo, cpf, agencia, conta, numeroBanco);
+                    jogadores[i] = new Humano(nome, saldo);
                 }
                 else if(tipo == 'M' || tipo == 'm'){
                     jogadores[i] = new Maquina(nome, saldo);
