@@ -1,7 +1,7 @@
 public abstract class JogoDados implements Estatistica{
-    int numDados;
-    String nomeJogo;
-    double saldo;
+    private int numDados;
+    private String nomeJogo;
+    private double saldo;
     Dado[] dados;
 
     public JogoDados(int numDados, String nomeJogo, double saldo) {
@@ -9,6 +9,10 @@ public abstract class JogoDados implements Estatistica{
         this.nomeJogo = nomeJogo;
         this.saldo = saldo;
         this.dados = new Dado[numDados];
+        for(Dado dado : dados){
+            dado = new Dado();
+        }
+
     }
 
     public void rolarDados(){//joga os dados e obtem o resultado
