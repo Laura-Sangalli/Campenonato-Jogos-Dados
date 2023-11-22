@@ -23,7 +23,7 @@ public abstract class JogoDados implements Estatistica{
     public String toString(){
   
         String valores = "Os valores obtidos são: ";
-        for (int i=0;i<5;i++){
+        for (int i=0;i<numDados;i++){
              valores += this.dados[i].getSideUp() + " - ";
         } 
         return valores;

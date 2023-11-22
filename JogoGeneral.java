@@ -5,12 +5,9 @@ public class JogoGeneral extends JogoDados implements Serializable{
     private Dado dados[] = new Dado[5];
     private int rodadas[] = new int[13];
 
-    public JogoGeneral(double saldo, String Jogo){//inicia o jodo general com a quantidade de dados e o numero de rodadas
+    public JogoGeneral(double saldo){//inicia o jodo general com a quantidade de dados e o numero de rodadas
         super(5, "JogoG", saldo);
         
-        for(int i=0; i<5; i++){
-            this.dados[i] = new Dado();
-        }
         for(int i=0; i<13; i++){
             this.rodadas[i] = -1;
         }
@@ -227,6 +224,8 @@ public class JogoGeneral extends JogoDados implements Serializable{
         return soma;
 
     }
+<<<<<<< HEAD
+=======
     public static void main(String[] args){
         JogoGeneral jogo = new JogoGeneral(100, "Jogo General");
 
@@ -242,4 +241,5 @@ public class JogoGeneral extends JogoDados implements Serializable{
         }
     }
     
+>>>>>>> 5d3265b9fb0eea02e0b84579cfd695371b0a0035
 }
