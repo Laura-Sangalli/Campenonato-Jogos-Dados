@@ -8,5 +8,16 @@ public interface Estatistica {
         }
         return soma;
     }
+
+    public static boolean ganhouJogoGeneral(JogoGeneral jogoG){
+        int soma=0;
+        for(int i=1; i<=12; i++){
+            soma += jogoG.getRodadas(i);
+        }
+        if(soma > 2*(jogoG.getRodadas(13))){
+            return true;
+        }
+        return false;
+    }
     
 }

@@ -2,7 +2,7 @@ import java.util.Scanner;
 import java.io.Serializable;
 
 public class JogoGeneral extends JogoDados implements Serializable{
-    private Dado dados[] = new Dado[5];
+    //private Dado dados[] = new Dado[5];
     private int rodadas[] = new int[13];
 
     public JogoGeneral(double saldo){//inicia o jodo general com a quantidade de dados e o numero de rodadas
@@ -154,6 +154,7 @@ public class JogoGeneral extends JogoDados implements Serializable{
                 }
                 for (int i = 2; i <= 6; i++) {
                     cont = 0;
+                    soma = 0;
                     for (Dado dado : dados) {
                         if (dado.getSideUp() == i)
                             cont++;
@@ -179,6 +180,7 @@ public class JogoGeneral extends JogoDados implements Serializable{
                 }
                 for (int i = 1; i <= 5; i++) {
                     cont = 0;
+                    soma = 0;
                     for (Dado dado : dados) {
                         if (dado.getSideUp() == i){
                             cont++;
@@ -213,6 +215,7 @@ public class JogoGeneral extends JogoDados implements Serializable{
                     soma += dado.getSideUp();
                 break;
             default:
+                soma = 0;
                 System.out.println("jogada inválida!");
                 break;
         }

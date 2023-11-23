@@ -110,12 +110,7 @@ public class Campeonato{
         while(maiorSaldo >= 0){
             for(int i=0;i<10;i++){
                 if(jogadores[i] != null){
-                    // if(jogadores[i] instanceof Humano){
-                    // jogadores[i].jogarDados();
-                    // } 
-                    // else{
-                    //     jogadores[i]
-                    // }
+                    
                     jogadores[i].jogarDados();
 
                     if(jogadores[i].getSaldo() > maiorSaldo){

@@ -7,11 +7,11 @@ public interface JogarComoMaquina {
                     jogadaDeMaiorPontuacao = i;
                     jogo.resetarJogadaDaMaquina(i);
             }
-        }
-        
-        if(jogadaDeMaiorPontuacao == 0){
+        } 
+        if(jogadaDeMaiorPontuacao == 0 && jogo.validarRodada(13)){
             jogo.pontuarRodada(13);
         }
+        
         else{
             jogo.pontuarRodada(jogadaDeMaiorPontuacao);
         }

@@ -40,7 +40,7 @@ public class Humano extends Jogador implements JogarComoHumano{
             jogoG.toString();
             System.out.println("Informe o número correspondente a jogada que voce deseja executar: ");
             value = scanner.nextInt();
-            scanner.close();
+            // scanner.close();
 
             if(value >= 1 && value <= 13){
                 if(jogoG.validarRodada(value)){
