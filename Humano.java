@@ -13,18 +13,18 @@ public class Humano extends Jogador implements JogarComoHumano{
         this.conta = conta;
         this.numeroBanco = numeroBanco;
         this.jogoA = new JogoAzar(saldo);
-        this.jogoG = new JogoGeneral(getSaldo(), getNome());
+        this.jogoG = new JogoGeneral(getSaldo());
     }
     
     public void jogarDados(){
         int jogoEscolhido = Jogador.escolherJogo();
 
+        System.out.println("JOGADOR(A) DA RODADA: " + this.getNome() + " (H)");
 
         if(jogoEscolhido == 2){ //jogoGeneral
             escolherJogadas();
         }
         else if(jogoEscolhido == 1){
-            jogoA.rolarDados();
             jogoA.resultado();
         }
         else{

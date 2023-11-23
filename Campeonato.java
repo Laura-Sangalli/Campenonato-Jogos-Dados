@@ -4,7 +4,7 @@ public class Campeonato{
     private Jogador jogadores[] = new Jogador[10];
     private String cpf, conta, agencia;
     private int numeroBanco;
-    private double saldo;
+    private double saldo = 100;
 
     private static Scanner teclado = new Scanner(System.in);
 
@@ -38,8 +38,8 @@ public class Campeonato{
             System.out.println("Nome já inserido");
         }
 
-        System.out.println("Digite o seu saldo:");
-        double saldo = teclado.nextDouble();
+        // System.out.println("Digite o seu saldo:");
+        // double saldo = teclado.nextDouble();
 
         /*System.out.println("Digite seu cpf:");
 
@@ -110,9 +110,13 @@ public class Campeonato{
         while(maiorSaldo >= 0){
             for(int i=0;i<10;i++){
                 if(jogadores[i] != null){
-                    if(jogadores[i] instanceof Humano){
+                    // if(jogadores[i] instanceof Humano){
+                    // jogadores[i].jogarDados();
+                    // } 
+                    // else{
+                    //     jogadores[i]
+                    // }
                     jogadores[i].jogarDados();
-                    } 
 
                     if(jogadores[i].getSaldo() > maiorSaldo){
                         maiorSaldo = jogadores[i].getSaldo();

@@ -15,6 +15,8 @@ public abstract class JogoDados implements Estatistica{
     }
 
     public void rolarDados(){//joga os dados e obtem o resultado
+        System.out.println(dados[0]);
+        
         for(Dado dado : this.dados){
             dado.roll();
         }

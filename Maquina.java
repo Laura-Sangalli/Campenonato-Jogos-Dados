@@ -12,12 +12,14 @@ public class Maquina extends Jogador implements JogarComoMaquina{
     public void jogarDados(){
         int jogoEscolhido = Jogador.escolherJogo();
         
-        if(jogoEscolhido == 1){
+        System.out.println("JOGADOR(A) DA RODADA: " + this.getNome() + " (M)");
+        if(jogoEscolhido == 2){
             JogarComoMaquina.aplicarEstrategia(jogoG);
         }
-        else if(jogoEscolhido == 2){
-            jogoA.rolarDados();
+        else if(jogoEscolhido == 1){
             jogoA.resultado();
         }
+
+        
     }
 }
