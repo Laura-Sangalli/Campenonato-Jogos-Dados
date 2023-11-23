@@ -14,7 +14,7 @@ public class Maquina extends Jogador implements JogarComoMaquina{
         
         System.out.println("JOGADOR(A) DA RODADA: " + this.getNome() + " (M)");
         if(jogoEscolhido == 2){
-            for(int i=0; i<12; i++){
+            for(int i=0; i<13; i++){
                 JogarComoMaquina.aplicarEstrategia(jogoG);
             }
             if(Estatistica.ganhouJogoGeneral(jogoG) == true){

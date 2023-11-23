@@ -14,6 +14,7 @@ public interface Estatistica {
         for(int i=1; i<=12; i++){
             soma += jogoG.getRodadas(i);
         }
+        System.out.println("Soma: " + soma + "\nJogada aleatoria(13): " + jogoG.getRodadas(13));
         if(soma > 2*(jogoG.getRodadas(13))){
             return true;
         }
