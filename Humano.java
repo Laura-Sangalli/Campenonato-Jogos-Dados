@@ -22,6 +22,7 @@ public class Humano extends Jogador implements JogarComoHumano{
         System.out.println("JOGADOR(A) DA RODADA: " + this.getNome() + " (H)");
 
         if(jogoEscolhido == 2){ //jogoGeneral
+            jogoG.resetarRodadas();
             escolherJogadas();
         }
         else if(jogoEscolhido == 1){

@@ -14,6 +14,14 @@ public abstract class JogoDados implements Estatistica{
         }
     }
 
+    public int somarFacesSorteadas(){
+        int soma = 0;
+        for(Dado dado: dados){
+            soma += dado.getSideUp();
+        }
+        return soma;
+    }
+
     public void rolarDados(){//joga os dados e obtem o resultado
         System.out.println(dados[0]);
         
@@ -25,9 +33,10 @@ public abstract class JogoDados implements Estatistica{
     public String toString(){
   
         String valores = "Os valores obtidos são: ";
-        for (int i=0;i<numDados;i++){
+        for (int i=0;i<numDados - 1;i++){
              valores += this.dados[i].getSideUp() + " - ";
         } 
+        valores += this.dados[numDados - 1].getSideUp();
         return valores;
 
     }

@@ -27,19 +27,26 @@ public class JogoGeneral extends JogoDados implements Serializable{
        return super.toString();
     }
 
+    public boolean ganhouJogoGeneral(){
+        int soma=0, aux;
+        aux = this.getRodadas(13);
+        resetarJogadaDaMaquina(13);
+        for(int i=1; i<=12; i++){
+            soma += this.getRodadas(i);
+        }
+        System.out.println("Soma: " + soma + "\nJogada aleatoria(13): " + aux);
+        if(soma > 2*(this.getRodadas(13))){
+            return true;
+        }
+        return false;
+    }
+
     public boolean validarRodada(int rodadaAtual){//verifica se a rodada ja foi escolhida anteriormente
         if(rodadas[rodadaAtual - 1] == -1){
             return true;
         }         
         return false;
     }
-
-    
-    // public void alterarSituacaoDaRodada(int rodadaAtual){//muda a rodada para indicar que a mesma ja foi escolhida
-    //     if (rodadaAtual >= 1 && rodadaAtual <= 13) {
-    //         rodadas[rodadaAtual - 1] = 0;
-    //     }
-    // }
 
     public void resetarJogadaDaMaquina(int jogadaEscolhida){
         rodadas[jogadaEscolhida - 1] = -1;   
