@@ -15,7 +15,7 @@ public abstract class Jogador {
         Scanner scanner = new Scanner(System.in);
             
         while(value != 1 && value != 2){   
-            System.out.println("Informe o número correspondente a qual jogo voce deseja apostar: \n1 - Jogo Azar; \n2 - Jogo General.");
+            System.out.println("Informe o número correspondente a qual jogo você deseja apostar: \n1 - Jogo Azar; \n2 - Jogo General.");
             value = scanner.nextInt();
             //scanner.close();
 

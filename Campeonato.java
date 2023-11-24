@@ -106,8 +106,12 @@ public class Campeonato{
 
     public void iniciarCampeonato(){
         // antes de in
+        if(jogadores[0] == null){//verifica se tem algum jogador
+            System.out.println("Adicione um jogador");
+        }
         double maiorSaldo = 0;
-        while(maiorSaldo >= 0){
+        int n=0;//n é o numero de jogadas
+        while(maiorSaldo >= 0 && n<10){
             for(int i=0;i<10;i++){
                 if(jogadores[i] != null){
                     
@@ -118,6 +122,7 @@ public class Campeonato{
                     }
                 }
             }
+            n++;
         }
         
     }

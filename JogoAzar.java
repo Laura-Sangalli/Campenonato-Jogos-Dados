@@ -5,16 +5,12 @@ public class JogoAzar extends JogoDados{
         super(2, "JogoAzar", saldo);
     }
 
-    public String toString(){
-        return super.toString();
-    }
-
     public void resultado(){
         this.rolarDados();
         int res;
         System.out.print(this);
         res = dados[0].getSideUp() + dados[1].getSideUp();
-        System.out.println("A soma é:" + res);
+        System.out.println("\n1A soma é:" + res);
         if(res == 7 || res == 11){
             System.out.println("O jogador ganhou :)");
         }
