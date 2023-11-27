@@ -38,12 +38,7 @@ public class Campeonato{
             System.out.println("Nome já inserido");
         }
 
-         System.out.println("Digite o seu saldo:");
-         double saldo = teclado.nextDouble();
-
-        /*System.out.println("Digite seu cpf:");
-
-        System.out.println("Digite ");*/
+        //System.out.println("Digite seu cpf:");
 
         // solicita ao usuário o tipo de jogador que está sendo adicionado
         System.out.println("Digite o Tipo do Jogador (H/M)");
@@ -117,8 +112,9 @@ public class Campeonato{
                 if(jogadores[i] != null){
                     System.out.println("Digite o valor que deseja apostar");
                     aposta = teclado.nextDouble();
+
                     while(aposta <= 0 || aposta > saldo){
-                        System.out.println("Aposta invalida digite outra aposta\n");
+                        System.out.println("Aposta invalida digite outra aposta");
                         aposta = teclado.nextDouble();
                     }
                                         

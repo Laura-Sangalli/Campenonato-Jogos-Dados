@@ -8,9 +8,9 @@ public class Humano extends Jogador implements JogarComoHumano{
 
     public Humano(String nome, double saldo){
         super(nome, saldo);
-        this.cpf = cpf;
-        this.agencia = agencia;
-        this.conta = conta;
+        //this.cpf = cpf;
+        //this.agencia = agencia;
+        //this.conta = conta;
         this.saldo = saldo;
         this.jogoA = new JogoAzar();
         this.jogoG = new JogoGeneral();
@@ -30,22 +30,25 @@ public class Humano extends Jogador implements JogarComoHumano{
             }
             if(jogoG.ganhouJogoGeneral() == true){
                 System.out.println("O jogador venceu o Jogo General :)\n");
-                saldo += aposta;
+                this.saldo += aposta;
             }
             else{
                 System.out.println("O jogador perdeu o Jogo General :(\n");
-                saldo -= aposta;
+                this.saldo -= aposta;
             }
+            setSaldo(this.saldo);
+
 
             System.out.println("Saldo: "+ getSaldo());
         }
         else if(jogoEscolhido == 1){
             if(jogoA.resultado() == true){
-                saldo += aposta;
+                this.saldo += aposta;
             }
             else{
-                saldo -= aposta;
+                this.saldo -= aposta;
             }
+            setSaldo(this.saldo);
 
             System.out.println("Saldo: "+ getSaldo());
         }
@@ -80,7 +83,4 @@ public class Humano extends Jogador implements JogarComoHumano{
 
         return value;
     }
-
-    
-
 }

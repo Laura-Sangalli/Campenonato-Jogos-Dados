@@ -3,11 +3,12 @@ import java.util.Scanner;
 public abstract class Jogador {
     private String nome;
     private double saldo;
-    private JogoDados[] jogos = new JogoDados[10];
+    private JogoDados[] jogos;
 
     public Jogador(String nome, double saldo){
         this.nome = nome;
         this.saldo = saldo;     
+        jogos = new JogoDados[10];
     }
 
     public static int escolherJogo(){
@@ -15,7 +16,7 @@ public abstract class Jogador {
         Scanner scanner = new Scanner(System.in);
             
         while(value != 1 && value != 2){   
-            System.out.println("Informe o número correspondente a qual jogo você deseja apostar: \n1 - Jogo Azar; \n2 - Jogo General;\n3-Sair do campeonato.");
+            System.out.println("Informe o número correspondente a qual jogo você deseja apostar: \n1 - Jogo Azar; \n2 - Jogo General; \n3-Sair do campeonato.");
             value = scanner.nextInt();
             //scanner.close();
 
@@ -53,7 +54,7 @@ public abstract class Jogador {
         System.out.println(string);
     }
 
-    public void atualizaSaldo(double saldo){
+    public void setSaldo(double saldo){
         this.saldo = saldo;
     }
 
