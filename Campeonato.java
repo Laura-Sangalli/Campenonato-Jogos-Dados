@@ -10,6 +10,7 @@ public class Campeonato{
     public Campeonato(){
         this.jogadores = new Jogador[10];
         this.saldo = 100;
+        this.cpf = ""; 
     }
 
     // verifica se o nome do jogador está presente na lista
@@ -43,10 +44,10 @@ public class Campeonato{
         }
 
          System.out.println("Digite o seu saldo:");
-         saldo = teclado.nextDouble();
+         this.saldo = teclado.nextDouble();
 
         System.out.println("Informe seu cpf:");
-        cpf = teclado.nextLine();
+        this.cpf = teclado.nextLine();
 
         // solicita ao usuário o tipo de jogador que está sendo adicionado
         System.out.println("Digite o Tipo do Jogador (H/M)");
