@@ -1,12 +1,16 @@
 import java.util.Scanner;
 
 public class Campeonato{
-    private Jogador jogadores[] = new Jogador[10];
+    private Jogador jogadores[];
     private String cpf, conta, agencia;
     private int numeroBanco;
-    private double saldo = 100;
+    private double saldo;
+    Scanner teclado = new Scanner(System.in);
 
-    private static Scanner teclado = new Scanner(System.in);
+    public Campeonato(){
+        this.jogadores = new Jogador[10];
+        this.saldo = 100;
+    }
 
     // verifica se o nome do jogador está presente na lista
     public boolean checarNome(String nome){
@@ -39,11 +43,10 @@ public class Campeonato{
         }
 
          System.out.println("Digite o seu saldo:");
-         double saldo = teclado.nextDouble();
+         saldo = teclado.nextDouble();
 
-        /*System.out.println("Digite seu cpf:");
-
-        System.out.println("Digite ");*/
+        System.out.println("Informe seu cpf:");
+        cpf = teclado.nextLine();
 
         // solicita ao usuário o tipo de jogador que está sendo adicionado
         System.out.println("Digite o Tipo do Jogador (H/M)");
