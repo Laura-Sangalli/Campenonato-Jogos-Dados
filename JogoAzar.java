@@ -1,11 +1,11 @@
 public class JogoAzar extends JogoDados{
     //private Dado[] dados = new Dado[2];
     
-    public JogoAzar(double saldo){
-        super(2, "JogoAzar", saldo);
+    public JogoAzar(){
+        super(2, "JogoAzar");
     }
 
-    public void resultado(){
+    public boolean resultado(){
         this.rolarDados();
         int res;
         System.out.print(this);
@@ -28,13 +28,14 @@ public class JogoAzar extends JogoDados{
                 System.out.println("A soma é:" + res);
                 if(res == res1){
                     System.out.println("O jogador ganhou :)");
-                    break;
+                    return true;
                 }
                 else if(res == 2 || res == 3 || res == 12){
                     System.out.println("O jogador perdeu :(");
-                    break;
+                    return false;
                 }
             }
         }
+        return false;
     }
 }

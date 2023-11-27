@@ -38,8 +38,8 @@ public class Campeonato{
             System.out.println("Nome já inserido");
         }
 
-        // System.out.println("Digite o seu saldo:");
-        // double saldo = teclado.nextDouble();
+         System.out.println("Digite o seu saldo:");
+         double saldo = teclado.nextDouble();
 
         /*System.out.println("Digite seu cpf:");
 
@@ -109,13 +109,20 @@ public class Campeonato{
         if(jogadores[0] == null){//verifica se tem algum jogador
             System.out.println("Adicione um jogador");
         }
-        double maiorSaldo = 0;
+        double maiorSaldo = 100;
         int n=0;//n é o numero de jogadas
-        while(maiorSaldo >= 0 && n<10){
+        double aposta;
+        while(maiorSaldo > 0 && n<10){
             for(int i=0;i<10;i++){
                 if(jogadores[i] != null){
-                    
-                    jogadores[i].jogarDados();
+                    System.out.println("Digite o valor que deseja apostar");
+                    aposta = teclado.nextDouble();
+                    while(aposta <= 0 || aposta > saldo){
+                        System.out.println("Aposta invalida digite outra aposta\n");
+                        aposta = teclado.nextDouble();
+                    }
+                                        
+                    jogadores[i].jogarDados(aposta);
 
                     if(jogadores[i].getSaldo() > maiorSaldo){
                         maiorSaldo = jogadores[i].getSaldo();

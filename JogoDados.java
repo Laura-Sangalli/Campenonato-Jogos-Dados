@@ -4,10 +4,9 @@ public abstract class JogoDados implements Estatistica{
     private double saldo;
     Dado[] dados;
 
-    public JogoDados(int numDados, String nomeJogo, double saldo) {
+    public JogoDados(int numDados, String nomeJogo) {
         this.numDados = numDados;
         this.nomeJogo = nomeJogo;
-        this.saldo = saldo;
         this.dados = new Dado[numDados];
         for (int i = 0; i < numDados; i++) {
             this.dados[i] = new Dado();

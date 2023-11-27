@@ -2,6 +2,6 @@ import java.util.Scanner;
 
 public interface JogarComoHumano {
 
-    public abstract void escolherJogadas();
+    public abstract int escolherJogadas();
      
 }

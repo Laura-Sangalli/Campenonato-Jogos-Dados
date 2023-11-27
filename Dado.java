@@ -23,7 +23,7 @@ public class Dado implements Serializable{
 
     // retorna a string com o valor obtido ao rolar os dados 
     public String toString(){
-        String valores = "\n\nRolando dados para jogador 1 ... \n";
+        String valores = "\nRolando dados para o JOGADOR ... \n";
         return valores;
     }
 

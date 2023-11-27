@@ -4,12 +4,12 @@ public class Maquina extends Jogador implements JogarComoMaquina{
 
     public Maquina(String nome, double saldo){
         super(nome, saldo);
-        jogoA = new JogoAzar(saldo);
-        jogoG = new JogoGeneral(saldo);
+        jogoA = new JogoAzar();
+        jogoG = new JogoGeneral();
 
     }
 
-    public void jogarDados(){
+    public void jogarDados(double aposta){
         int jogoEscolhido = Jogador.escolherJogo();
 
         System.out.println("JOGADOR(A) DA RODADA: " + this.getNome() + " (M)");
@@ -50,11 +50,14 @@ public class Maquina extends Jogador implements JogarComoMaquina{
         if(jogadaDeMaiorPontuacao != 0){
             System.out.println("Jogada escolhida pela maquina: " + jogadaDeMaiorPontuacao);
             System.out.println("Pontuação obtida: " + jogoG.pontuarRodada(jogadaDeMaiorPontuacao));
+            mostrarJogadasExecutadas(jogoG);
+            System.out.println("==================================================================");
             
         }
         else{
             System.out.println("Jogada escolhida pela maquina: " + 13);
             System.out.println("Pontuação obtida: " + jogoG.pontuarRodada(13));
+            mostrarJogadasExecutadas(jogoG);
         }
     }
 }

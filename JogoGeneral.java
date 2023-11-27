@@ -5,8 +5,8 @@ public class JogoGeneral extends JogoDados implements Serializable{
     //private Dado dados[] = new Dado[5];
     private int rodadas[] = new int[13];
 
-    public JogoGeneral(double saldo){//inicia o jodo general com a quantidade de dados e o numero de rodadas
-        super(5, "JogoG", saldo);
+    public JogoGeneral(){//inicia o jodo general com a quantidade de dados e o numero de rodadas
+        super(5, "JogoG");
         
         for(int i=0; i<13; i++){
             this.rodadas[i] = -1;
@@ -30,11 +30,11 @@ public class JogoGeneral extends JogoDados implements Serializable{
     public boolean ganhouJogoGeneral(){
         int soma=0, aux;
         aux = this.getRodadas(13);
-        resetarJogadaDaMaquina(13);
+        //resetarJogadaDaMaquina(13);
         for(int i=1; i<=12; i++){
             soma += this.getRodadas(i);
         }
-        System.out.println("Soma: " + soma + "\nJogada aleatoria(13): " + aux);
+        System.out.println("\nSoma: " + soma + "\nJogada aleatoria(13): " + aux);
         if(soma > 2*(this.getRodadas(13))){
             return true;
         }
@@ -232,6 +232,5 @@ public class JogoGeneral extends JogoDados implements Serializable{
             rodadas[escolha - 1] = soma;
         }
         return soma;
-
     }
 }
