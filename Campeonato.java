@@ -39,8 +39,9 @@ public class Campeonato{
         String nome = teclado.next();
 
         // verifica se o nome do jogador já foi inserido anteriormente. Não podem haver jogadores com nomes iguais
-        if(checarNome(nome)==true){
-            System.out.println("Nome já inserido");
+        while(checarNome(nome)==true){
+            System.out.println("Nome já inserido, insira outro nome");
+            nome = teclado.next();
         }
 
         //System.out.println("Digite seu cpf:");
@@ -114,25 +115,25 @@ public class Campeonato{
         double aposta;
         while(maiorSaldo > 0 && n<10){
             for(int i=0;i<10;i++){
-                if(jogadores[i] != null){
+                if(jogadores[i] != null && jogadores[i].getSaldo() != 0){
                     System.out.println("Digite o valor que deseja apostar");
                     aposta = teclado.nextDouble();
 
-                    while(aposta <= 0 || aposta > saldo){
+                    while(aposta <= 0 || aposta > jogadores[i].getSaldo()){
                         System.out.println("Aposta invalida digite outra aposta");
                         aposta = teclado.nextDouble();
                     }
                                         
                     jogadores[i].jogarDados(aposta);
 
-                    if(jogadores[i].getSaldo() > maiorSaldo){
+                    jogadores[i].setSaldo(jogadores[i].getSaldo());
+                    if(jogadores[i].getSaldo() < maiorSaldo){
                         maiorSaldo = jogadores[i].getSaldo();
                     }
                 }
             }
             n++;
         }
-        
     }
 
     public void mostrarCartela(){

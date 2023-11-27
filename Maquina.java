@@ -1,9 +1,11 @@
 public class Maquina extends Jogador implements JogarComoMaquina{
     private JogoAzar jogoA;
     private JogoGeneral jogoG;
+    private double saldo;
 
     public Maquina(String nome, double saldo){
         super(nome, saldo);
+        this.saldo = saldo;
         jogoA = new JogoAzar();
         jogoG = new JogoGeneral();
 
@@ -19,9 +21,11 @@ public class Maquina extends Jogador implements JogarComoMaquina{
             }
             if(jogoG.ganhouJogoGeneral() == true){
                 System.out.println("O jogador venceu o Jogo General :)\n");
+                this.saldo += aposta;
             }
             else{
                 System.out.println("O jogador perdeu o Jogo General :(\n");
+                this.saldo -= aposta;
             }
                 jogoG.resetarRodadas();
         }
