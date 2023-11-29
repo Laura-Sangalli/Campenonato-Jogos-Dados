@@ -1,18 +1,22 @@
+import java.util.Random;
+
 public class Maquina extends Jogador implements JogarComoMaquina{
     private JogoAzar jogoA;
     private JogoGeneral jogoG;
     private double saldo;
+    private Random random;
 
-    public Maquina(String nome, double saldo){
-        super(nome, saldo);
+    public Maquina(String nome, double saldo, char tipo){
+        super(nome, saldo, tipo);
         this.saldo = saldo;
         jogoA = new JogoAzar();
         jogoG = new JogoGeneral();
+        random = new Random();
 
     }
 
     public void jogarDados(double aposta){
-        int jogoEscolhido = Jogador.escolherJogo();
+        int jogoEscolhido = random.nextInt(2) + 1;
 
         System.out.println("JOGADOR(A) DA RODADA: " + this.getNome() + " (M)");
         if(jogoEscolhido == 2){
@@ -27,10 +31,20 @@ public class Maquina extends Jogador implements JogarComoMaquina{
                 System.out.println("O jogador perdeu o Jogo General :(\n");
                 this.saldo -= aposta;
             }
-                jogoG.resetarRodadas();
+            setSaldo(this.saldo);
+            jogoG.resetarRodadas();
+            System.out.println("Saldo: "+ String.format("%.2f", getSaldo()));
         }
         else if(jogoEscolhido == 1){
-            jogoA.resultado();
+            if(jogoA.resultado() == true){
+                this.saldo += aposta;
+            }
+            else{
+                this.saldo -= aposta;
+            }
+            setSaldo(this.saldo);
+
+            System.out.println("Saldo: "+ String.format("%.2f", getSaldo()));
         }
     }
 
@@ -59,9 +73,11 @@ public class Maquina extends Jogador implements JogarComoMaquina{
             
         }
         else{
+            System.out.println("==================================================================");
             System.out.println("Jogada escolhida pela maquina: " + 13);
             System.out.println("Pontuação obtida: " + jogoG.pontuarRodada(13));
             mostrarJogadasExecutadas(jogoG);
+            System.out.println("==================================================================");
         }
     }
 }
