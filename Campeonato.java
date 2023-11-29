@@ -2,8 +2,7 @@ import java.util.Scanner;
 
 public class Campeonato{
     private Jogador jogadores[];
-    private String cpf, conta, agencia;
-    private int numeroBanco;
+    private String cpf;
     private double saldo;
     Scanner teclado = new Scanner(System.in);
 
@@ -51,7 +50,10 @@ public class Campeonato{
         char tipo = teclado.next().charAt(0);
 
         if(checarTipo(tipo) == false){
-            System.out.println("Tipo invalido");
+            while(checarTipo(tipo) == false){
+                System.out.println("Tipo invalido, digite o Tipo do Jogador (H/M)");
+                tipo = teclado.next().charAt(0);
+            }
         }
         // verifica se o tipo do jogador informado é válido, ou seja, humano (h ou H) ou máquina (m ou M)
 
@@ -60,10 +62,10 @@ public class Campeonato{
             // se a posição for nula, inicializa uma instância da classe Jogador 
             if(jogadores[i] == null){
                 if(tipo == 'H' || tipo == 'h'){
-                    jogadores[i] = new Humano(nome, saldo);
+                    jogadores[i] = new Humano(nome, saldo, tipo);
                 }
                 else if(tipo == 'M' || tipo == 'm'){
-                    jogadores[i] = new Maquina(nome, saldo);
+                    jogadores[i] = new Maquina(nome, saldo, tipo);
                 }
                 System.out.println("Jogador inserido com sucesso");
                 return;
@@ -111,28 +113,40 @@ public class Campeonato{
             System.out.println("Adicione um jogador");
         }
         double maiorSaldo = 100;
-        int n=0;//n é o numero de jogadas
         double aposta;
-        while(maiorSaldo > 0 && n<10){
+        if(maiorSaldo > 0){
             for(int i=0;i<10;i++){
-                if(jogadores[i] != null && jogadores[i].getSaldo() != 0){
-                    System.out.println("Digite o valor que deseja apostar");
-                    aposta = teclado.nextDouble();
-
-                    while(aposta <= 0 || aposta > jogadores[i].getSaldo()){
-                        System.out.println("Aposta invalida digite outra aposta");
+                if(jogadores[i] != null && jogadores[i].getSaldo() > 0 && jogadores[i].getRodadas()<10){
+                    if(jogadores[i].getTipo() == 'H' || jogadores[i].getTipo() == 'h'){
+                        System.out.println("Digite o valor que deseja apostar");
                         aposta = teclado.nextDouble();
-                    }
-                                        
-                    jogadores[i].jogarDados(aposta);
 
-                    jogadores[i].setSaldo(jogadores[i].getSaldo());
-                    if(jogadores[i].getSaldo() < maiorSaldo){
-                        maiorSaldo = jogadores[i].getSaldo();
+                        while(aposta <= 0 || aposta > jogadores[i].getSaldo()){
+                            System.out.println("Aposta invalida digite outra aposta");
+                            aposta = teclado.nextDouble();
+                        }
+                                        
+                        jogadores[i].jogarDados(aposta);
+
+                        jogadores[i].setSaldo(jogadores[i].getSaldo());
+                        if(jogadores[i].getSaldo() < maiorSaldo){
+                            maiorSaldo = jogadores[i].getSaldo();
+                        }
                     }
+                    else{
+                        aposta = (jogadores[i].getSaldo() * 30) / 100;
+                        System.out.println("O valor apostado foi: " + String.format("%.2f", aposta));
+                                        
+                        jogadores[i].jogarDados(aposta);
+
+                        jogadores[i].setSaldo(jogadores[i].getSaldo());
+                        if(jogadores[i].getSaldo() < maiorSaldo){
+                            maiorSaldo = jogadores[i].getSaldo();
+                        }
+                    }
+                    jogadores[i].setRodadas(jogadores[i].getRodadas() + 1);
                 }
             }
-            n++;
         }
     }
 

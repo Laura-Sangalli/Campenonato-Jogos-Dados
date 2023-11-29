@@ -6,8 +6,8 @@ public class Humano extends Jogador implements JogarComoHumano{
     private JogoGeneral jogoG;
     private JogoAzar jogoA;
 
-    public Humano(String nome, double saldo){
-        super(nome, saldo);
+    public Humano(String nome, double saldo, char tipo){
+        super(nome, saldo, tipo);
         //this.cpf = cpf;
         //this.agencia = agencia;
         //this.conta = conta;
@@ -37,7 +37,6 @@ public class Humano extends Jogador implements JogarComoHumano{
                 this.saldo -= aposta;
             }
             setSaldo(this.saldo);
-
 
             System.out.println("Saldo: "+ getSaldo());
         }

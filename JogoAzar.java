@@ -6,6 +6,7 @@ public class JogoAzar extends JogoDados{
     }
 
     public boolean resultado(){
+        System.out.println("==================================================================");
         this.rolarDados();
         int res;
         System.out.print(this);

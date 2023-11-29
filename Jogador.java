@@ -4,11 +4,15 @@ public abstract class Jogador {
     private String nome;
     private double saldo;
     private JogoDados[] jogos;
+    private char tipo;
+    private int rodadas;
 
-    public Jogador(String nome, double saldo){
+    public Jogador(String nome, double saldo, char tipo){
         this.nome = nome;
-        this.saldo = saldo;     
+        this.saldo = saldo;    
+        this.tipo = tipo; 
         jogos = new JogoDados[10];
+        rodadas = 0;
     }
 
     public static int escolherJogo(){
@@ -64,6 +68,18 @@ public abstract class Jogador {
 
     public String getNome(){//função para pegar o nome de um jogador
         return nome;
+    }
+
+    public char getTipo(){
+        return tipo;
+    }
+    
+    public int getRodadas(){
+        return rodadas;
+    }
+
+    public void setRodadas(int rodadas){
+        this.rodadas = rodadas;
     }
 
 }
