@@ -47,12 +47,6 @@ public class JogoGeneral extends JogoDados implements Serializable{
         return false;
     }
 
-    public void analiseDeJogo(){
-        for(int i=0; i<6; i++){
-            System.out.println("DADO DE NUMERO " + (i + 1) + ": " + estatistica[i]);
-        }
-    }
-
     public boolean validarRodada(int rodadaAtual){//verifica se a rodada ja foi escolhida anteriormente
         if(rodadas[rodadaAtual - 1] == -1){
             return true;
