@@ -33,7 +33,9 @@ public class Maquina extends Jogador implements JogarComoMaquina{
             }
             setSaldo(this.saldo);
             jogoG.resetarRodadas();
-            System.out.println("Saldo: "+ String.format("%.2f", getSaldo()));
+            System.out.println("====== ESTATISTICAS DO JOGO ======");
+            jogoG.analiseDeJogo();
+            System.out.println("\nSaldo: "+ String.format("%.2f", getSaldo()));
         }
         else if(jogoEscolhido == 1){
             if(jogoA.resultado() == true){
@@ -43,8 +45,9 @@ public class Maquina extends Jogador implements JogarComoMaquina{
                 this.saldo -= aposta;
             }
             setSaldo(this.saldo);
-
-            System.out.println("Saldo: "+ String.format("%.2f", getSaldo()));
+            System.out.println("====== ESTATISTICAS DO JOGO ======");
+            jogoA.analiseDeJogo();
+            System.out.println("\nSaldo: "+ String.format("%.2f", getSaldo()));
         }
     }
 

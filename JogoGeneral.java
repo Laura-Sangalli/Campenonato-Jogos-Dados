@@ -3,13 +3,19 @@ import java.io.Serializable;
 
 public class JogoGeneral extends JogoDados implements Serializable{
     //private Dado dados[] = new Dado[5];
-    private int rodadas[] = new int[13];
+    private int rodadas[], estatistica[];
+
 
     public JogoGeneral(){//inicia o jodo general com a quantidade de dados e o numero de rodadas
         super(5, "JogoG");
-        
+        rodadas = new int[13];
+        estatistica = new int[6];
         for(int i=0; i<13; i++){
             this.rodadas[i] = -1;
+        }
+
+        for(int i=0; i<6; i++){
+            this.estatistica[i] = 0;
         }
     } 
 
@@ -25,7 +31,7 @@ public class JogoGeneral extends JogoDados implements Serializable{
 
     public String toString(){
        return super.toString();
-    }
+    } 
 
     public boolean ganhouJogoGeneral(){
         int soma=0, aux;
@@ -39,6 +45,12 @@ public class JogoGeneral extends JogoDados implements Serializable{
             return true;
         }
         return false;
+    }
+
+    public void analiseDeJogo(){
+        for(int i=0; i<6; i++){
+            System.out.println("DADO DE NUMERO " + (i + 1) + ": " + estatistica[i]);
+        }
     }
 
     public boolean validarRodada(int rodadaAtual){//verifica se a rodada ja foi escolhida anteriormente

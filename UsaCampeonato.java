@@ -41,10 +41,10 @@ public class UsaCampeonato {
                     break;
                 case 6:
                     campeonato.lerDoArquivo();
-                    break;                  
+                    break;                  */
                 case 7:
-                    System.out.println("Encerrando o programa.");
-                    break;*/
+                    System.out.println("Encerrando o programa...");
+                    break;
                 default:
                     System.out.println("Opção inválida. Tente novamente.");
             }

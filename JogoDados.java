@@ -2,23 +2,33 @@ public abstract class JogoDados implements Estatistica{
     private int numDados;
     private String nomeJogo;
     private double saldo;
+    private int estatistica[];
     Dado[] dados;
 
     public JogoDados(int numDados, String nomeJogo) {
         this.numDados = numDados;
         this.nomeJogo = nomeJogo;
         this.dados = new Dado[numDados];
+        this.estatistica = new int[6];
         for (int i = 0; i < numDados; i++) {
             this.dados[i] = new Dado();
         }
+
+        for(int i=0; i<6; i++){
+            estatistica[i] = 0;
+        }
     }
 
-    public int somarFacesSorteadas(){
-        int soma = 0;
-        for(Dado dado: dados){
-            soma += dado.getSideUp();
+    public void analiseDeJogo(){
+        for(int i=0; i<6; i++){
+            System.out.println("DADO DE NUMERO " + (i + 1) + ": " + estatistica[i]);
         }
-        return soma;
+    }
+
+    public void somarFacesSorteadas(int estatistica[]){
+        for(Dado dado : dados){
+            estatistica[dado.getSideUp() - 1] += 1;
+        }
     }
 
     public void rolarDados(){//joga os dados e obtem o resultado
@@ -27,6 +37,7 @@ public abstract class JogoDados implements Estatistica{
         for(Dado dado : this.dados){
             dado.roll();
         }
+        this.somarFacesSorteadas(this.estatistica);
     }
 
     public String toString(){
@@ -37,5 +48,5 @@ public abstract class JogoDados implements Estatistica{
         } 
         valores += this.dados[numDados - 1].getSideUp();
         return valores;
-    }
+    } 
 }
