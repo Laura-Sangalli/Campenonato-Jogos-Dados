@@ -145,9 +145,52 @@ public class Campeonato{
                         }
                     }
                     jogadores[i].setRodadas(jogadores[i].getRodadas() + 1);
+                    jogadores[i].estatisticaTotalJogador();
+                }
+            }
+
+            
+        }
+    }
+
+    public int[] estatisticaCampeonatoJogoAzar(){
+        int estatistica[] = new int[6];
+
+        for(Jogador jogador : jogadores){
+            for(int i =0; i<6; i++){
+                estatistica[i] += jogador.estatisticaTotalJogoAzarPara1Player()[i];
+            }
+        }
+
+        
+
+        return estatistica;
+    }
+
+    public int[] estatisticaCampeonatoJogoGeneral(){
+        int estatistica[] = new int[6];
+
+        for(Jogador jogador : jogadores){
+            for(int i =0; i<6; i++){
+                estatistica[i] += jogador.estatisticaTotalJogoGeneralPara1Player()[i];
+            }
+        }
+
+        return estatistica;
+    }
+
+    public int[] estatisticaCampeonatoDeJogos(){
+        int estatistica[] = new int[6];
+
+        for(Jogador jogador : jogadores){
+            if(jogador != null){
+                for(int i =0; i<6; i++){
+                estatistica[i] += jogador.estatisticaTotalJogador()[i];
                 }
             }
         }
+        
+        return estatistica;
     }
 
     public void mostrarCartela(){
@@ -161,4 +204,6 @@ public class Campeonato{
     public void lerDoArquivo(){
         
     }
+
+
 }

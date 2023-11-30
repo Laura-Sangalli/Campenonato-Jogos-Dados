@@ -62,9 +62,14 @@ public abstract class Jogador {
         int estatistica[] = new int[6];
 
         for(JogoDados jogo : jogos){
-            for(int i=0; i<6; i++){
+           if(jogo != null){
+                for(int i=0; i<6; i++){
                 estatistica[i] += (estatisticaTotalJogoAzarPara1Player()[i] + estatisticaTotalJogoGeneralPara1Player()[i]);
+                System.out.println(estatistica[i] + " ");
+                }
             }
+
+
         }
 
         return estatistica;
@@ -93,6 +98,7 @@ public abstract class Jogador {
 
             for(int i=0; i<6; i++){
                 estatistica[i] += jogo.getEStatistica()[i];
+                System.out.println(estatistica[i] + "+" + jogo.getEStatistica()[i]);
             }
            }
         }
@@ -123,5 +129,6 @@ public abstract class Jogador {
     public void setRodadas(int rodadas){
         this.rodadas = rodadas;
     }
+
 
 }
