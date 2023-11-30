@@ -57,6 +57,48 @@ public abstract class Jogador {
         }
         System.out.println(string);
     }
+    
+    public  int[] estatisticaTotalJogador(){
+        int estatistica[] = new int[6];
+
+        for(JogoDados jogo : jogos){
+            for(int i=0; i<6; i++){
+                estatistica[i] += (estatisticaTotalJogoAzarPara1Player()[i] + estatisticaTotalJogoGeneralPara1Player()[i]);
+            }
+        }
+
+        return estatistica;
+    }
+
+    public int[] estatisticaTotalJogoGeneralPara1Player(){
+        int estatistica[] = new int[6];
+
+        for(JogoDados jogo : jogos){
+           if(jogo instanceof JogoGeneral){
+
+            for(int i=0; i<6; i++){
+                estatistica[i] += jogo.getEStatistica()[i];
+            }
+           }
+        }
+
+        return estatistica;
+    }
+
+    public int[] estatisticaTotalJogoAzarPara1Player(){
+        int estatistica[] = new int[6];
+
+        for(JogoDados jogo : jogos){
+           if(jogo instanceof JogoAzar){
+
+            for(int i=0; i<6; i++){
+                estatistica[i] += jogo.getEStatistica()[i];
+            }
+           }
+        }
+
+        return estatistica;
+    }
 
     public void setSaldo(double saldo){
         this.saldo = saldo;

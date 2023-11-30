@@ -49,4 +49,8 @@ public abstract class JogoDados implements Estatistica{
         valores += this.dados[numDados - 1].getSideUp();
         return valores;
     } 
+
+    public int[] getEStatistica(){
+        return estatistica;
+    }
 }
