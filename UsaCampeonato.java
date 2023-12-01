@@ -13,10 +13,12 @@ public class UsaCampeonato {
             System.out.println("1 - Adicionar Jogador.");
             System.out.println("2 - Remover Jogador.");
             System.out.println("3 - Começar o jogo.");
-            System.out.println("4 - Mostrar Tabela.");
-            System.out.println("5 - Gravar dados.");
-            System.out.println("6 - Ler dados.");
-            System.out.println("7 - Sair.\n");
+            System.out.println("4 - imprimir Saldo.");
+            System.out.println("5 - imprimir Extrato.");
+            System.out.println("6 - imprimir Estatistica.");
+            System.out.println("7 - Gravar dados.");
+            System.out.println("8 - Ler dados.");
+            System.out.println("9 - Sair.\n");
 
             opcao = 0;
             System.out.print("Escolha uma opção:");
@@ -33,22 +35,22 @@ public class UsaCampeonato {
                 case 3:
                     campeonato.iniciarCampeonato();
                     break;
-                /*case 4:
-                    System.out.println(campeonato.mostrarCartela());
+                case 4:
+                    campeonato.imprimirSaldo();
                     break;
-                case 5:
+                /*case 5:
                     campeonato.gravarEmArquivo();
                     break;
                 case 6:
                     campeonato.lerDoArquivo();
                     break;                  */
-                case 7:
+                case 9:
                     System.out.println("Encerrando o programa...");
                     break;
                 default:
                     System.out.println("Opção inválida. Tente novamente.");
             }
-        } while (opcao != 7);
+        } while (opcao != 9);
 
         teclado.close();
     }

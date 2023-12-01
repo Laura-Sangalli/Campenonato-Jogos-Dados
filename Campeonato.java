@@ -2,14 +2,14 @@ import java.util.Scanner;
 
 public class Campeonato{
     private Jogador jogadores[];
-    private String cpf;
+    //private String cpf;
     private double saldo;
     Scanner teclado = new Scanner(System.in);
 
     public Campeonato(){
         this.jogadores = new Jogador[10];
         this.saldo = 100;
-        this.cpf = ""; 
+        //this.cpf = ""; 
     }
 
     // verifica se o nome do jogador está presente na lista
@@ -193,7 +193,50 @@ public class Campeonato{
         return estatistica;
     }
 
-    public void mostrarCartela(){
+    public void imprimirSaldo(){
+        int escolha = 0;
+        while (escolha != 1 && escolha != 2 && escolha != 3) {
+            System.out.println("1 - Saldo de todos os jogadores\n2 - Saldo dos jogadores humanos\n3 - Saldo dos jogadores maquinas");
+            escolha = teclado.nextInt();
+    
+            if(escolha != 1 && escolha != 2 && escolha != 3){
+                System.out.println("Valor invalido");
+            }
+        }
+
+        if(escolha == 1){
+            for(int i = 0; i<10;i++){
+                if(jogadores[i] != null){
+                    System.out.println("Jogador " + i);
+                    System.out.println(String.format("%.2f", jogadores[i].getSaldo()) + "\n");
+                }
+            }
+        }
+
+        else if(escolha == 2){
+            for(int i = 0; i<10;i++){
+                System.out.println("Jogador " + i);
+                if(jogadores[i] != null && (jogadores[i].getTipo() == 'h' || jogadores[i].getTipo() == 'H')){
+                    System.out.println(String.format("%.2f", jogadores[i].getSaldo()) + "\n");
+                }
+            }
+        }
+
+        else{
+            for(int i = 0; i<10;i++){
+                System.out.println("Jogador " + i);
+                if(jogadores[i] != null && (jogadores[i].getTipo() == 'm' || jogadores[i].getTipo() == 'M')){
+                    System.out.println(String.format("%.2f", jogadores[i].getSaldo()) + "\n");
+                }
+            }
+        }
+    }
+
+    public void imprimirExtrato(){
+
+    }
+
+    public void imprimirEstatistica(){
 
     }
 

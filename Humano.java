@@ -1,7 +1,7 @@
 import java.util.Scanner;
 
 public class Humano extends Jogador implements JogarComoHumano{
-    private String cpf, agencia, conta;
+    //private String cpf, agencia, conta;
     private double saldo;
     private JogoGeneral jogoG;
     private JogoAzar jogoA;

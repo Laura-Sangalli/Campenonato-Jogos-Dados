@@ -18,7 +18,7 @@ public class Dado implements Serializable{
     //corresponde a face superior do dado
     public void roll(){
         Random x = new Random();
-        sideUP = x.nextInt(6) + 1;
+        sideUP = x.nextInt(6) + 1;  
     }
 
     // retorna a string com o valor obtido ao rolar os dados 

@@ -1,4 +1,3 @@
-import java.util.Scanner;
 import java.io.Serializable;
 
 public class JogoGeneral extends JogoDados implements Serializable{

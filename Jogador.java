@@ -20,7 +20,7 @@ public abstract class Jogador {
         Scanner scanner = new Scanner(System.in);
             
         while(value != 1 && value != 2){   
-            System.out.println("Informe o número correspondente a qual jogo você deseja apostar: \n1 - Jogo Azar; \n2 - Jogo General; \n3-Sair do campeonato.");
+            System.out.println("Informe o número correspondente a qual jogo você deseja apostar: \n1 - Jogo Azar; \n2 - Jogo General; \n3 - Sair do campeonato.");
             value = scanner.nextInt();
             //scanner.close();
 
