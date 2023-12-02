@@ -13,7 +13,7 @@ public class Maquina extends Jogador implements JogarComoMaquina{
         jogoG = new JogoGeneral();
         random = new Random();
 
-    }
+    } 
 
     public void jogarDados(double aposta){
         int jogoEscolhido = random.nextInt(2) + 1;

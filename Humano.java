@@ -14,7 +14,7 @@ public class Humano extends Jogador implements JogarComoHumano{
     }
     
     public void jogarDados(double aposta){
-        int jogoEscolhido = Jogador.escolherJogo();
+        int jogoEscolhido = escolherJogo();
 
         System.out.println("JOGADOR(A) DA RODADA: " + this.getNome() + " (H)");
 

@@ -3,7 +3,7 @@ import java.util.Scanner;
 public abstract class Jogador {
     private String nome;
     private double saldo;
-    private JogoDados[] jogos;
+    private JogoDados jogos[];
     private char tipo;
     private int rodadas;
 
@@ -15,8 +15,8 @@ public abstract class Jogador {
         rodadas = 0;
     }
 
-    public static int escolherJogo(){
-        int value=0;
+    public int escolherJogo(){
+        int value=0; 
         Scanner scanner = new Scanner(System.in);
             
         while(value != 1 && value != 2){   
@@ -26,11 +26,12 @@ public abstract class Jogador {
 
             if(value != 1 && value != 2){
                 System.out.println("O valor informado eh invalido!");
-            }
+            } 
             
         }
-        return value;  
-            
+
+        return value;
+                    
     }
 
     public abstract void jogarDados(double aposta);
@@ -128,6 +129,15 @@ public abstract class Jogador {
 
     public void setRodadas(int rodadas){
         this.rodadas = rodadas;
+    }
+
+    public void setJogo(JogoDados jogo){
+        for(int i=0; i<10; i++){
+            if(jogos[i] == null){
+                jogos[i] = jogo;
+            }            
+        }
+
     }
 
 
