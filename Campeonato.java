@@ -145,8 +145,12 @@ public class Campeonato{
                         }
                     }
                     jogadores[i].setRodadas(jogadores[i].getRodadas() + 1);
-                    jogadores[i].estatisticaTotalJogador();
                 }
+            }
+            
+            for(int i=0; i<10; i++){
+                if(jogadores[i] != null)
+                    jogadores[i].estatisticaTotalJogador();
             }
 
             

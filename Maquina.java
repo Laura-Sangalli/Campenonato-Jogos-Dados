@@ -35,6 +35,7 @@ public class Maquina extends Jogador implements JogarComoMaquina{
             jogoG.resetarRodadas();
             System.out.println("====== ESTATISTICAS DO JOGO ======");
             jogoG.analiseDeJogo();
+            setJogo(jogoG);
             System.out.println("\nSaldo: "+ String.format("%.2f", getSaldo()));
         }
         else if(jogoEscolhido == 1){
@@ -47,6 +48,7 @@ public class Maquina extends Jogador implements JogarComoMaquina{
             setSaldo(this.saldo);
             System.out.println("====== ESTATISTICAS DO JOGO ======");
             jogoA.analiseDeJogo();
+            setJogo(jogoA);
             System.out.println("\nSaldo: "+ String.format("%.2f", getSaldo()));
         }
     }
