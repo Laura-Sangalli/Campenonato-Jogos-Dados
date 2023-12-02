@@ -64,7 +64,7 @@ public abstract class Jogador {
         
         System.out.println("== ESTATISTICA TOTAL JOGADOR ==");
 
-        for(int j=9; j>=0; j--){
+        for(int j=9; j>=0; j-=1){
            if(jogos[j] != null){
                 for(int i=0; i<6; i++){
                     estatistica[i] += (estatisticaTotalJogoAzarPara1Player()[i] + estatisticaTotalJogoGeneralPara1Player()[i]);
