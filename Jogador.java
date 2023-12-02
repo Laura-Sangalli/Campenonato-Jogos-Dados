@@ -68,7 +68,12 @@ public abstract class Jogador {
         while(j >= 0){
            if(jogos[j] != null){
                 for(int i=0; i<6; i++){
-                    estatistica[i] += (estatisticaTotalJogoAzarPara1Player()[i] + estatisticaTotalJogoGeneralPara1Player()[i]);
+                    if(jogos[j] instanceof JogoAzar){
+                        estatistica[i] += estatisticaTotalJogoAzarPara1Player()[i];
+                    }
+                    else{
+                        estatistica[i] = estatisticaTotalJogoGeneralPara1Player()[i];
+                    }
                     System.out.println(estatistica[i] + " ");
                 }
                 return estatistica;
@@ -83,17 +88,18 @@ public abstract class Jogador {
     public int[] estatisticaTotalJogoGeneralPara1Player(){
         int estatistica[] = new int[6];
 
-
-        for(JogoDados jogo : jogos){
-           if(jogo != null){
-                if(jogo instanceof JogoGeneral){
+        int j = 9;
+        while(j >= 0){
+           if(jogos[j] != null){
+                if(jogos[j] instanceof JogoGeneral){
                     for(int i=0; i<6; i++){
-                        estatistica[i] += jogo.getEStatistica()[i];
+                        estatistica[i] += jogos[j].getEStatistica()[i];
                     }
+                    return estatistica;
                 }      
 
             }
-
+            j--;
         }
 
         return estatistica;
@@ -102,16 +108,17 @@ public abstract class Jogador {
     public int[] estatisticaTotalJogoAzarPara1Player(){
         int estatistica[] = new int[6];
 
-        for(JogoDados jogo : jogos){
-           if(jogo != null){
-                if(jogo instanceof JogoAzar){
+        int j = 9;
+        while(j >= 0){
+           if(jogos[j] != null){
+                if(jogos[j] instanceof JogoAzar){
                     for(int i=0; i<6; i++){
-                        estatistica[i] += jogo.getEStatistica()[i];
+                        estatistica[i] += jogos[j].getEStatistica()[i];
                     }
                 }      
 
             }
-
+            j--;
         }
 
 
