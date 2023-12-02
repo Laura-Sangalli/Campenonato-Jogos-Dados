@@ -64,15 +64,17 @@ public abstract class Jogador {
         
         System.out.println("== ESTATISTICA TOTAL JOGADOR ==");
 
-        for(int j=9; j>=0; j-=1){
+        int j = 9;
+        while(j >= 0){
            if(jogos[j] != null){
                 for(int i=0; i<6; i++){
                     estatistica[i] += (estatisticaTotalJogoAzarPara1Player()[i] + estatisticaTotalJogoGeneralPara1Player()[i]);
                     System.out.println(estatistica[i] + " ");
                 }
-                break;
+                return estatistica;
             }
-            break;
+            j--;
+
         }
         return estatistica;
 
@@ -81,13 +83,17 @@ public abstract class Jogador {
     public int[] estatisticaTotalJogoGeneralPara1Player(){
         int estatistica[] = new int[6];
 
-        for(JogoDados jogo : jogos){
-           if(jogo instanceof JogoGeneral){
 
-            for(int i=0; i<6; i++){
-                estatistica[i] += jogo.getEStatistica()[i];
+        for(JogoDados jogo : jogos){
+           if(jogo != null){
+                if(jogo instanceof JogoGeneral){
+                    for(int i=0; i<6; i++){
+                        estatistica[i] += jogo.getEStatistica()[i];
+                    }
+                }      
+
             }
-           }
+
         }
 
         return estatistica;
@@ -97,13 +103,17 @@ public abstract class Jogador {
         int estatistica[] = new int[6];
 
         for(JogoDados jogo : jogos){
-           if(jogo instanceof JogoAzar){
+           if(jogo != null){
+                if(jogo instanceof JogoAzar){
+                    for(int i=0; i<6; i++){
+                        estatistica[i] += jogo.getEStatistica()[i];
+                    }
+                }      
 
-            for(int i=0; i<6; i++){
-                estatistica[i] += jogo.getEStatistica()[i];
             }
-           }
+
         }
+
 
         return estatistica;
     }
