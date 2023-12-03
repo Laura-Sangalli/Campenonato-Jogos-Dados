@@ -1,12 +1,14 @@
 import java.util.Scanner;
 
-public abstract class Jogador {
+// Classe abstrata que representa um jogador genérico
+public abstract class Jogador{
     private String nome;
     private double saldo;
     private JogoDados jogos[];
     private char tipo;
     private int rodadas;
 
+    // Construtor que inicializa os atributos básicos do jogador
     public Jogador(String nome, double saldo, char tipo){
         this.nome = nome;
         this.saldo = saldo;    
@@ -15,130 +17,126 @@ public abstract class Jogador {
         rodadas = 0;
     }
 
+    // Método para permitir ao jogador escolher um jogo (JogoAzar, JogoGeneral, ou sair)
     public int escolherJogo(){
-        int value=0; 
+        int value = 0; 
         Scanner scanner = new Scanner(System.in);
             
-        while(value != 1 && value != 2){   
+        while (value != 1 && value != 2){   
             System.out.println("Informe o número correspondente a qual jogo você deseja apostar: \n1 - Jogo Azar; \n2 - Jogo General; \n3 - Sair do campeonato.");
             value = scanner.nextInt();
-            //scanner.close();
-
-            if(value != 1 && value != 2){
-                System.out.println("O valor informado eh invalido!");
-            } 
             
+            if (value != 1 && value != 2){
+                System.out.println("O valor informado é inválido!");
+            } 
         }
 
-        return value;
-                    
+        return value;   
     }
 
+    // Método abstrato que deve ser implementado nas subclasses para simular os jogos de dados
     public abstract void jogarDados(double aposta);
 
-    public String toString(){
-        String str = "";
-
-        return str;
-    }
-
-    public void mostrarJogadasExecutadas(JogoGeneral jogoG){//mostra a pontuação de cada jogada dos jogadores
+    // Método para mostrar as jogadas executadas no JogoGeneral
+    public void mostrarJogadasExecutadas(JogoGeneral jogoG){
         System.out.println("\n 1 2 3 4 5 6 7(T) 8(Q) 9(F) 10(S+) 11(S-) 12(G) 13(X)");
         String string = "";
         int pontuacao;
 
-        for(int i=1;i<=13;i++){
-            if(jogoG.getRodadas(i) == -1){//se a jogada não foi iniciada
+        for (int i = 1; i <= 13; i++){
+            if (jogoG.getRodadas(i) == -1){
                 string += " -";
-            }
-            else{
-                pontuacao = jogoG.getRodadas(i);//se a jogada foi iniciada
+            } else {
+                pontuacao = jogoG.getRodadas(i);
                 string += " " + pontuacao;
             }
         }
         System.out.println(string);
     }
-    
-    public  int[] estatisticaTotalJogador(){
+
+    // Método para calcular estatísticas totais do jogador
+    public int[] estatisticaTotalJogador(){
         int estatistica[] = new int[6];
 
-        for(JogoDados jogo : jogos){
-           if(jogo != null){
-                for(int i=0; i<6; i++){
-                estatistica[i] += (estatisticaTotalJogoAzarPara1Player()[i] + estatisticaTotalJogoGeneralPara1Player()[i]);
-                System.out.println(estatistica[i] + " ");
+        for (JogoDados jogo : jogos) {
+            if (jogo != null) {
+                for (int i = 0; i < 6; i++){
+                    estatistica[i] += (estatisticaTotalJogoAzarPara1Player()[i] + estatisticaTotalJogoGeneralPara1Player()[i]);
+                    System.out.println(estatistica[i] + " ");
                 }
             }
-
-
         }
 
         return estatistica;
     }
 
+    // Método para calcular estatísticas totais do JogoGeneral para o jogador
     public int[] estatisticaTotalJogoGeneralPara1Player(){
         int estatistica[] = new int[6];
 
-        for(JogoDados jogo : jogos){
-           if(jogo instanceof JogoGeneral){
-
-            for(int i=0; i<6; i++){
-                estatistica[i] += jogo.getEStatistica()[i];
+        for (JogoDados jogo : jogos) {
+            if (jogo instanceof JogoGeneral){
+                for (int i = 0; i < 6; i++){
+                    estatistica[i] += jogo.getEStatistica()[i];
+                }
             }
-           }
         }
 
         return estatistica;
     }
 
+    // Método para calcular estatísticas totais do JogoAzar para o jogador
     public int[] estatisticaTotalJogoAzarPara1Player(){
         int estatistica[] = new int[6];
 
-        for(JogoDados jogo : jogos){
-           if(jogo instanceof JogoAzar){
-
-            for(int i=0; i<6; i++){
-                estatistica[i] += jogo.getEStatistica()[i];
-                System.out.println(estatistica[i] + "+" + jogo.getEStatistica()[i]);
+        for (JogoDados jogo : jogos){
+            if (jogo instanceof JogoAzar){
+                for (int i = 0; i < 6; i++){
+                    estatistica[i] += jogo.getEStatistica()[i];
+                    System.out.println(estatistica[i] + "+" + jogo.getEStatistica()[i]);
+                }
             }
-           }
         }
 
         return estatistica;
     }
 
+    // Método para atualizar o saldo do jogador
     public void setSaldo(double saldo){
         this.saldo = saldo;
     }
 
+    // Método para obter o saldo do jogador
     public double getSaldo(){ 
         return this.saldo;
     }
 
-    public String getNome(){//função para pegar o nome de um jogador
+    // Método para obter o nome do jogador
+    public String getNome(){
         return nome;
     }
 
+    // Método para obter o tipo de jogador (H ou M)
     public char getTipo(){
         return tipo;
     }
     
+    // Método para obter o número de rodadas jogadas
     public int getRodadas(){
         return rodadas;
     }
 
+    // Método para definir o número de rodadas jogadas
     public void setRodadas(int rodadas){
         this.rodadas = rodadas;
     }
 
+    // Método para definir o jogo atual do jogador
     public void setJogo(JogoDados jogo){
-        for(int i=0; i<10; i++){
-            if(jogos[i] == null){
+        for (int i = 0; i < 10; i++){
+            if (jogos[i] == null){
                 jogos[i] = jogo;
             }            
         }
-
     }
-
-
 }

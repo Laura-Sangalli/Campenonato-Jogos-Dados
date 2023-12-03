@@ -162,8 +162,6 @@ public class Campeonato{
             }
         }
 
-        
-
         return estatistica;
     }
 
@@ -233,11 +231,42 @@ public class Campeonato{
     }
 
     public void imprimirExtrato(){
+        int escolha = 0;
+        while (escolha != 1 && escolha != 2 && escolha != 3) {
+            System.out.println("1 - Extrato de todos os jogadores\n2 - Extrato dos jogadores humanos\n3 - Extrato dos jogadores maquinas");
+            escolha = teclado.nextInt();
+    
+            if(escolha != 1 && escolha != 2 && escolha != 3){
+                System.out.println("Valor invalido");
+            }
+        }
 
     }
 
     public void imprimirEstatistica(){
+        int escolha = 0;
+        while (escolha != 1 && escolha != 2 && escolha != 3) {
+            System.out.println("1 - Por jogador\n2 - Por jogos escolhidos por cada jogador\n3 - Total por jogos\n4 - Total do campeonato");
+            escolha = teclado.nextInt();
+    
+            if(escolha != 1 && escolha != 2 && escolha != 3 && escolha != 4){
+                System.out.println("Valor invalido");
+            }
+        }
 
+        switch (escolha) {
+            case 1:
+                for(int i=0;i<10;i++){
+                    if(jogadores[i] != null){
+                        
+                    }
+                }
+                break;
+        
+            default:
+                System.out.println("Jogada Invalida");
+                break;
+        }
     }
 
     public void gravarEmArquivo(){
