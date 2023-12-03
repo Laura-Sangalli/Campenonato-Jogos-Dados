@@ -32,7 +32,7 @@ public class JogoGeneral extends JogoDados implements Serializable{
        return super.toString();
     } 
 
-    public boolean ganhouJogoGeneral(){
+    public boolean resultado(){
         int soma=0, aux;
         aux = this.getRodadas(13);
         //resetarJogadaDaMaquina(13);

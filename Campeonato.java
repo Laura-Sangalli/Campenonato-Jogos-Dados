@@ -2,7 +2,6 @@ import java.util.Scanner;
 
 public class Campeonato{
     private Jogador jogadores[];
-    //private String cpf;
     private double saldo;
     Scanner teclado = new Scanner(System.in);
 
@@ -236,6 +235,7 @@ public class Campeonato{
 
     public void imprimirExtrato(){
         int escolha = 0;
+        int dadosExtrato = 0;
         while (escolha != 1 && escolha != 2 && escolha != 3) {
             System.out.println("1 - Extrato de todos os jogadores\n2 - Extrato dos jogadores humanos\n3 - Extrato dos jogadores maquinas");
             escolha = teclado.nextInt();
@@ -243,6 +243,38 @@ public class Campeonato{
             if(escolha != 1 && escolha != 2 && escolha != 3){
                 System.out.println("Valor invalido");
             }
+        }
+
+        while (dadosExtrato != 1 && dadosExtrato != 2 && dadosExtrato != 3) {
+            System.out.println("1 - Extrato de todos os jogos\n2 - Extrato do Jogo Azar \n3 - Extrato do Jogo General");
+            dadosExtrato = teclado.nextInt();
+    
+            if(dadosExtrato!= 1 && dadosExtrato != 2 && dadosExtrato!= 3){
+                System.out.println("Valor invalido");
+            }
+        }
+
+        switch (escolha) {
+            case 1: // extrato de todos os jogadores 
+            {
+                for(Jogador jogador : jogadores){
+                    if(jogador != null){
+                        
+                    }
+                }
+                break;
+            }
+            case 2: { // extrato dos jogadores humanos 
+
+                break;
+            }
+            case 3: { // extrato das maquinas
+
+                break;
+            }
+        
+            default:
+                break;
         }
 
     }

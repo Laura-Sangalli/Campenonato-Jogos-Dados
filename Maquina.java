@@ -21,6 +21,8 @@ public class Maquina extends Jogador implements JogarComoMaquina {
         // Escolhe aleatoriamente entre os dois jogos disponíveis
         int jogoEscolhido = random.nextInt(2) + 1;
 
+        setApostas(aposta);
+
         System.out.println("JOGADOR(A) DA RODADA: " + this.getNome() + " (M)");
 
         // Se o jogo escolhido for JogoGeneral (2)

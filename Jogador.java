@@ -5,6 +5,7 @@ public abstract class Jogador{
     private String nome;
     private double saldo;
     private JogoDados jogos[];
+    private double apostas[];
     private char tipo;
     private int rodadas;
 
@@ -13,6 +14,7 @@ public abstract class Jogador{
         this.nome = nome;
         this.saldo = saldo;    
         this.tipo = tipo; 
+        this.apostas = new double[10];
         jogos = new JogoDados[10];
         rodadas = 0; 
     }
@@ -150,6 +152,19 @@ public abstract class Jogador{
         this.rodadas = rodadas;
     }
 
+    public double getApostas(int pos) {
+        return apostas[pos - 1];
+    }
+
+    public void setApostas(double valor){
+        for(double aposta : apostas){
+            if(aposta == 0){
+                aposta = valor;
+                return;
+            }
+        }
+    }
+
     // Método para definir o jogo atual do jogador
     public void setJogo(JogoDados jogo){
         for (int i = 0; i < 10; i++){
@@ -158,5 +173,47 @@ public abstract class Jogador{
                 return;
             }            
         }
+    }
+
+    public void extratoIndividual(int dadosExtrato){
+        String extrato = new String();
+        switch (dadosExtrato) {
+            case 1:{ // extrato de todos os jogos 
+                for(int i=0; i<10; i++){
+                    if(jogos[i] instanceof JogoGeneral){
+                        extrato += "JOGO GENERAL: ";
+                    }
+                    
+                    extrato += apostas[i];
+                    
+                    if(jogos[i].resultado()){
+                        extrato += "ganhou\t";
+                    }
+                    else{
+                        extrato += "perdeu\t";
+                    }
+                }
+                break;
+            }
+            case 2:{ // extrato jogo azar
+                for(JogoDados jogo : jogos){
+                    if(jogo instanceof JogoAzar){
+                        
+                    }
+                }
+                break;
+            }
+            case 3:{ // extrato jogo general
+                for(JogoDados jogo : jogos){
+                    if(jogo instanceof JogoGeneral){
+                        
+                    }
+                }
+                break;
+            }
+            default:
+                break;
+        }
+
     }
 }
