@@ -24,7 +24,7 @@ public class Humano extends Jogador implements JogarComoHumano{
             jogoG.resetarRodadas();
             for(int i=0; i<13; i++){
                 jogoG.pontuarRodada(escolherJogadas());
-                mostrarJogadasExecutadas(jogoG);
+                System.out.println(mostrarJogadasExecutadas(jogoG));
                 System.out.println("==================================================================");
             }
             if(jogoG.getResultadoFinal() == true){

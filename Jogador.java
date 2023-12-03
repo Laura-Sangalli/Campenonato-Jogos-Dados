@@ -54,7 +54,7 @@ public abstract class Jogador{
                 string += " " + pontuacao;
             }
         }
-        System.out.println(string);
+        //System.out.println(string);
 
         return string;
     }

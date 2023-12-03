@@ -98,13 +98,13 @@ public class Maquina extends Jogador implements JogarComoMaquina {
         if (jogadaDeMaiorPontuacao != 0){
             System.out.println("Jogada escolhida pela maquina: " + jogadaDeMaiorPontuacao);
             System.out.println("Pontuação obtida: " + jogoG.pontuarRodada(jogadaDeMaiorPontuacao));
-            mostrarJogadasExecutadas(jogoG);
+            System.out.println(mostrarJogadasExecutadas(jogoG));
             System.out.println("==================================================================");
         } else {
             System.out.println("==================================================================");
             System.out.println("Jogada escolhida pela maquina: " + 13);
             System.out.println("Pontuação obtida: " + jogoG.pontuarRodada(13));
-            mostrarJogadasExecutadas(jogoG);
+            System.out.println(mostrarJogadasExecutadas(jogoG));
             System.out.println("==================================================================");
         }
     }
