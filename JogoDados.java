@@ -1,7 +1,6 @@
 public abstract class JogoDados implements Estatistica{
     private int numDados;
-    //private String nomeJogo;
-    //private double saldo;
+    private boolean resultadoFinal;
     private int estatistica[];
     Dado[] dados;
 
@@ -13,13 +12,14 @@ public abstract class JogoDados implements Estatistica{
         for (int i = 0; i < numDados; i++) {
             this.dados[i] = new Dado();
         }
+        resultadoFinal = false;
 
         for(int i=0; i<6; i++){
             estatistica[i] = 0;
         }
     }
 
-    public abstract boolean resultado();
+    public abstract void resultado();
 
     public void analiseDeJogo(){
         for(int i=0; i<6; i++){ 
@@ -54,5 +54,13 @@ public abstract class JogoDados implements Estatistica{
 
     public int[] getEStatistica(){
         return estatistica;
+    }
+
+    public void setResultadoFinal(boolean resultadoFinal) {
+        this.resultadoFinal = resultadoFinal;
+    }
+
+    public boolean getResultadoFinal(){
+        return this.resultadoFinal;
     }
 }

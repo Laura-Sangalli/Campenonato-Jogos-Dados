@@ -38,12 +38,12 @@ public class UsaCampeonato {
                 case 4:
                     campeonato.imprimirSaldo();
                     break;
-                /*case 5:
-                    campeonato.gravarEmArquivo();
+                case 5:
+                    campeonato.imprimirExtrato();
                     break;
                 case 6:
                     campeonato.lerDoArquivo();
-                    break;                  */
+                    break;                 
                 case 9:
                     System.out.println("Encerrando o programa...");
                     break;

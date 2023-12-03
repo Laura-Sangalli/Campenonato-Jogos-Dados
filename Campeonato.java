@@ -259,17 +259,28 @@ public class Campeonato{
             {
                 for(Jogador jogador : jogadores){
                     if(jogador != null){
-                        
+                        System.out.println("JOGADOR " + jogador.getNome() +":   ");
+                        jogador.extratoIndividual(dadosExtrato);
                     }
                 }
                 break;
             }
             case 2: { // extrato dos jogadores humanos 
-
+                for(Jogador jogador : jogadores){
+                    if(jogador != null && jogador instanceof Humano){
+                        System.out.println("JOGADOR " + jogador.getNome() +":   ");
+                        jogador.extratoIndividual(dadosExtrato);
+                    }
+                }
                 break;
             }
             case 3: { // extrato das maquinas
-
+                for(Jogador jogador : jogadores){
+                    if(jogador != null && jogador instanceof Maquina){
+                        System.out.println("JOGADOR " + jogador.getNome() +":   ");
+                        jogador.extratoIndividual(dadosExtrato);
+                    }
+                }
                 break;
             }
         

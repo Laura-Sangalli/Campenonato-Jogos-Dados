@@ -40,11 +40,12 @@ public abstract class Jogador{
     public abstract void jogarDados(double aposta);
 
     // Método para mostrar as jogadas executadas no JogoGeneral
-    public void mostrarJogadasExecutadas(JogoGeneral jogoG){
-        System.out.println("\n 1 2 3 4 5 6 7(T) 8(Q) 9(F) 10(S+) 11(S-) 12(G) 13(X)");
-        String string = "";
-        int pontuacao;
+    public String mostrarJogadasExecutadas(JogoGeneral jogoG){
 
+        String string = new String();
+        string += "\n 1 2 3 4 5 6 7(T) 8(Q) 9(F) 10(S+) 11(S-) 12(G) 13(X)\n";
+
+        int pontuacao;
         for (int i = 1; i <= 13; i++){
             if (jogoG.getRodadas(i) == -1){
                 string += " -";
@@ -54,6 +55,8 @@ public abstract class Jogador{
             }
         }
         System.out.println(string);
+
+        return string;
     }
 
     // Método para calcular estatísticas totais do jogador
@@ -157,9 +160,9 @@ public abstract class Jogador{
     }
 
     public void setApostas(double valor){
-        for(double aposta : apostas){
-            if(aposta == 0){
-                aposta = valor;
+        for(int i=0; i<10; i++){
+            if(apostas[i] == 0.0){
+                apostas[i] = valor;
                 return;
             }
         }
@@ -180,33 +183,60 @@ public abstract class Jogador{
         switch (dadosExtrato) {
             case 1:{ // extrato de todos os jogos 
                 for(int i=0; i<10; i++){
-                    if(jogos[i] instanceof JogoGeneral){
-                        extrato += "JOGO GENERAL: ";
-                    }
-                    
-                    extrato += apostas[i];
-                    
-                    if(jogos[i].resultado()){
-                        extrato += "ganhou\t";
-                    }
-                    else{
-                        extrato += "perdeu\t";
+                    if(jogos[i] != null){
+                        if(jogos[i] instanceof JogoGeneral){
+                            JogoGeneral jogo = (JogoGeneral) jogos[i];
+                            extrato += "JOGO GENERAL: ";
+                            extrato += mostrarJogadasExecutadas(jogo);
+                        }
+                        else{
+                            extrato += "JOGO AZAR: \t";
+                        }
+                        
+                        extrato += apostas[i] + "\t";
+
+                        if(jogos[i].getResultadoFinal()){
+                            extrato += "ganhou\n";
+                        }
+                        else{
+                            extrato += "perdeu\n";
+                        }
                     }
                 }
                 break;
             }
             case 2:{ // extrato jogo azar
-                for(JogoDados jogo : jogos){
-                    if(jogo instanceof JogoAzar){
+                for(int i=0; i<10; i++){
+                    if(jogos[i] != null && jogos[i] instanceof JogoAzar){
+                        extrato += "JOGO AZAR: \t";
+                        extrato += apostas[i] + "\t";
                         
+                        
+                        if(jogos[i].getResultadoFinal()){
+                            extrato += "ganhou\n";
+                        }
+                        else{
+                            extrato += "perdeu\n";
+                        }
                     }
                 }
                 break;
             }
             case 3:{ // extrato jogo general
-                for(JogoDados jogo : jogos){
-                    if(jogo instanceof JogoGeneral){
+                for(int i=0; i<10; i++){
+                    if(jogos[i] != null && jogos[i] instanceof JogoGeneral){
+                        JogoGeneral jogo = (JogoGeneral) jogos[i];
+                        extrato += "JOGO GENERAL: ";
+                        extrato += mostrarJogadasExecutadas(jogo);
                         
+                        extrato += apostas[i] + "\t";
+                        
+                        if(jogos[i].getResultadoFinal()){
+                            extrato += "ganhou\n";
+                        }
+                        else{
+                            extrato += "perdeu\n";
+                        }
                     }
                 }
                 break;
@@ -214,6 +244,8 @@ public abstract class Jogador{
             default:
                 break;
         }
+
+        System.out.println(extrato);
 
     }
 }

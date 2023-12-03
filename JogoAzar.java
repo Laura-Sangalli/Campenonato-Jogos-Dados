@@ -7,7 +7,7 @@ public class JogoAzar extends JogoDados{
     }
 
     // Método para simular o resultado do jogo de azar
-    public boolean resultado(){
+    public void resultado(){
         System.out.println("==================================================================");
         this.rolarDados(); // Rola os dados
         int res;
@@ -18,12 +18,14 @@ public class JogoAzar extends JogoDados{
         // Verifica se o jogador ganhou
         if (res == 7 || res == 11){
             System.out.println("O jogador ganhou :)");
-            return true;
+            setResultadoFinal(true);
+            return;
         } 
         // Verifica se o jogador perdeu
         else if (res == 2 || res == 3 || res == 12){
             System.out.println("O jogador perdeu :(");
-            return false;
+            setResultadoFinal(false);
+            return;
         } 
         // Se a soma não é imediatamente ganhadora ou perdedora, continua jogando
         else{
@@ -42,15 +44,19 @@ public class JogoAzar extends JogoDados{
                 // Verifica se o jogador ganhou
                 if (res == res1){
                     System.out.println("O jogador ganhou :)");
-                    return true;
+                    // atribui o valor true a variavel resutadoFinal, que sera utilizada na montagem da cartela
+                    setResultadoFinal(true);
+
                 } 
                 // Verifica se o jogador perdeu
                 else if (res == 2 || res == 3 || res == 12){
                     System.out.println("O jogador perdeu :(");
-                    return false;
+                     // atribui o valor true a variavel resutadoFinal, que sera utilizada na montagem da cartela
+                    setResultadoFinal(false);
+
                 }
             } 
         }
-        return false;
+
     }
 }

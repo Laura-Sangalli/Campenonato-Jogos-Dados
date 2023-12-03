@@ -32,7 +32,7 @@ public class JogoGeneral extends JogoDados implements Serializable{
        return super.toString();
     } 
 
-    public boolean resultado(){
+    public void resultado(){
         int soma=0, aux;
         aux = this.getRodadas(13);
         //resetarJogadaDaMaquina(13);
@@ -41,9 +41,11 @@ public class JogoGeneral extends JogoDados implements Serializable{
         }
         System.out.println("\nSoma: " + soma + "\nJogada aleatoria(13): " + aux);
         if(soma > 2*(this.getRodadas(13))){
-            return true;
+            setResultadoFinal(true);
         }
-        return false; 
+        else{
+            setResultadoFinal(false);
+        } 
     }
 
     public boolean validarRodada(int rodadaAtual){//verifica se a rodada ja foi escolhida anteriormente

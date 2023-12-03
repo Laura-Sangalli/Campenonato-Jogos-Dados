@@ -21,7 +21,7 @@ public class Maquina extends Jogador implements JogarComoMaquina {
         // Escolhe aleatoriamente entre os dois jogos disponíveis
         int jogoEscolhido = random.nextInt(2) + 1;
 
-        setApostas(aposta);
+        this.setApostas(aposta);
 
         System.out.println("JOGADOR(A) DA RODADA: " + this.getNome() + " (M)");
 
@@ -33,7 +33,7 @@ public class Maquina extends Jogador implements JogarComoMaquina {
             }
 
             // Verifica se a máquina ganhou ou perdeu o JogoGeneral e ajusta o saldo
-            if (jogoG.ganhouJogoGeneral()){
+            if (jogoG.getResultadoFinal() == true){
                 System.out.println("O jogador venceu o Jogo General :)\n");
                 this.saldo += aposta;
             } else {
@@ -54,7 +54,7 @@ public class Maquina extends Jogador implements JogarComoMaquina {
         // Se o jogo escolhido for JogoAzar (1)
         else if (jogoEscolhido == 1){
             // Simula o resultado do JogoAzar e ajusta o saldo
-            if (jogoA.resultado()){
+            if (jogoA.getResultadoFinal()){
                 this.saldo += aposta;
             } else {
                 this.saldo -= aposta;

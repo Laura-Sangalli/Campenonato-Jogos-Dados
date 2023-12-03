@@ -16,6 +16,8 @@ public class Humano extends Jogador implements JogarComoHumano{
     public void jogarDados(double aposta){
         int jogoEscolhido = escolherJogo();
 
+        this.setApostas(aposta);
+
         System.out.println("JOGADOR(A) DA RODADA: " + this.getNome() + " (H)");
 
         if(jogoEscolhido == 2){ //jogoGeneral
@@ -25,7 +27,7 @@ public class Humano extends Jogador implements JogarComoHumano{
                 mostrarJogadasExecutadas(jogoG);
                 System.out.println("==================================================================");
             }
-            if(jogoG.ganhouJogoGeneral() == true){
+            if(jogoG.getResultadoFinal() == true){
                 System.out.println("O jogador venceu o Jogo General :)\n");
                 this.saldo += aposta;
             }
@@ -42,7 +44,8 @@ public class Humano extends Jogador implements JogarComoHumano{
             System.out.println("\nSaldo: "+ getSaldo());
         }
         else if(jogoEscolhido == 1){
-            if(jogoA.resultado() == true){
+
+            if(jogoA.getResultadoFinal() == true){
                 this.saldo += aposta;
             }
             else{
