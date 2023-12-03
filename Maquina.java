@@ -27,12 +27,15 @@ public class Maquina extends Jogador implements JogarComoMaquina {
 
         // Se o jogo escolhido for JogoGeneral (2)
         if (jogoEscolhido == 2) {
+            // reseta as jogadas do Jogo General
+            jogoG.resetarRodadas();
             // Aplica a estratégia do JogoGeneral durante 13 rodadas
             for (int i = 0; i < 13; i++){
                 aplicarEstrategia();
             }
 
             // Verifica se a máquina ganhou ou perdeu o JogoGeneral e ajusta o saldo
+            jogoG.resultado();
             if (jogoG.getResultadoFinal() == true){
                 System.out.println("O jogador venceu o Jogo General :)\n");
                 this.saldo += aposta;
@@ -41,9 +44,8 @@ public class Maquina extends Jogador implements JogarComoMaquina {
                 this.saldo -= aposta;
             }
 
-            // Atualiza o saldo e reseta as rodadas do JogoGeneral
+            // Atualiza o saldo 
             setSaldo(this.saldo);
-            jogoG.resetarRodadas();
 
             // Imprime estatísticas do JogoGeneral e o saldo atual
             System.out.println("====== ESTATISTICAS DO JOGO ======");
@@ -54,6 +56,8 @@ public class Maquina extends Jogador implements JogarComoMaquina {
         // Se o jogo escolhido for JogoAzar (1)
         else if (jogoEscolhido == 1){
             // Simula o resultado do JogoAzar e ajusta o saldo
+            jogoA.resultado();
+            
             if (jogoA.getResultadoFinal()){
                 this.saldo += aposta;
             } else {

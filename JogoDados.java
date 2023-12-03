@@ -12,7 +12,6 @@ public abstract class JogoDados implements Estatistica{
         for (int i = 0; i < numDados; i++) {
             this.dados[i] = new Dado();
         }
-        resultadoFinal = false;
 
         for(int i=0; i<6; i++){
             estatistica[i] = 0;

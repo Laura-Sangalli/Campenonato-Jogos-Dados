@@ -180,26 +180,27 @@ public abstract class Jogador{
 
     public void extratoIndividual(int dadosExtrato){
         String extrato = new String();
+        JogoGeneral jogo;
         switch (dadosExtrato) {
             case 1:{ // extrato de todos os jogos 
                 for(int i=0; i<10; i++){
                     if(jogos[i] != null){
                         if(jogos[i] instanceof JogoGeneral){
-                            JogoGeneral jogo = (JogoGeneral) jogos[i];
-                            extrato += "JOGO GENERAL: ";
-                            extrato += mostrarJogadasExecutadas(jogo);
+                            jogo = (JogoGeneral) jogos[i];
+                            extrato += "\nJOGO GENERAL: ";
+                            extrato += mostrarJogadasExecutadas(jogo) + "\n" ;
                         }
                         else{
-                            extrato += "JOGO AZAR: \t";
+                            extrato += "\nJOGO AZAR: \t";
                         }
                         
-                        extrato += apostas[i] + "\t";
+                        extrato += "Valor apostado: " + apostas[i] + "\t\t";
 
-                        if(jogos[i].getResultadoFinal()){
-                            extrato += "ganhou\n";
+                        if(jogos[i].getResultadoFinal() == true){
+                            extrato += "Situação do jogo: ganhou\n";
                         }
                         else{
-                            extrato += "perdeu\n";
+                            extrato += "Situação do jogo: perdeu\n";
                         }
                     }
                 }
@@ -208,15 +209,15 @@ public abstract class Jogador{
             case 2:{ // extrato jogo azar
                 for(int i=0; i<10; i++){
                     if(jogos[i] != null && jogos[i] instanceof JogoAzar){
-                        extrato += "JOGO AZAR: \t";
-                        extrato += apostas[i] + "\t";
+                        extrato += "\nJOGO AZAR: \t";
+                        extrato += "Valor apostado: " + apostas[i] + "\t\t";
                         
                         
-                        if(jogos[i].getResultadoFinal()){
-                            extrato += "ganhou\n";
+                        if(jogos[i].getResultadoFinal() == true){
+                            extrato += "Situação do jogo: ganhou\n";
                         }
                         else{
-                            extrato += "perdeu\n";
+                            extrato += "Situação do jogo: perdeu\n";
                         }
                     }
                 }
@@ -225,17 +226,17 @@ public abstract class Jogador{
             case 3:{ // extrato jogo general
                 for(int i=0; i<10; i++){
                     if(jogos[i] != null && jogos[i] instanceof JogoGeneral){
-                        JogoGeneral jogo = (JogoGeneral) jogos[i];
-                        extrato += "JOGO GENERAL: ";
+                        jogo = (JogoGeneral) jogos[i];
+                        extrato += "\nJOGO GENERAL: ";
                         extrato += mostrarJogadasExecutadas(jogo);
                         
-                        extrato += apostas[i] + "\t";
+                        extrato += "\n" + "Valor apostado: " + apostas[i] + "\t\t";
                         
                         if(jogos[i].getResultadoFinal()){
-                            extrato += "ganhou\n";
+                            extrato += "\nSituação do jogo: ganhou\n";
                         }
                         else{
-                            extrato += "perdeu\n";
+                            extrato += "\n Situação do jogo: perdeu\n";
                         }
                     }
                 }
