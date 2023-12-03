@@ -46,7 +46,8 @@ public class Maquina extends Jogador implements JogarComoMaquina {
             // Imprime estatísticas do JogoGeneral e o saldo atual
             System.out.println("====== ESTATISTICAS DO JOGO ======");
             jogoG.analiseDeJogo();
-            System.out.println("\nSaldo: " + String.format("%.2f", getSaldo()));
+            setJogo(jogoG);
+            System.out.println("\nSaldo: "+ String.format("%.2f", getSaldo()));
         }
         // Se o jogo escolhido for JogoAzar (1)
         else if (jogoEscolhido == 1){
@@ -61,7 +62,8 @@ public class Maquina extends Jogador implements JogarComoMaquina {
             setSaldo(this.saldo);
             System.out.println("====== ESTATISTICAS DO JOGO ======");
             jogoA.analiseDeJogo();
-            System.out.println("\nSaldo: " + String.format("%.2f", getSaldo()));
+            setJogo(jogoA);
+            System.out.println("\nSaldo: "+ String.format("%.2f", getSaldo()));
         }
     }
 

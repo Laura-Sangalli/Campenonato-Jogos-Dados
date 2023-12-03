@@ -43,7 +43,7 @@ public class JogoGeneral extends JogoDados implements Serializable{
         if(soma > 2*(this.getRodadas(13))){
             return true;
         }
-        return false;
+        return false; 
     }
 
     public boolean validarRodada(int rodadaAtual){//verifica se a rodada ja foi escolhida anteriormente

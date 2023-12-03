@@ -14,7 +14,7 @@ public abstract class Jogador{
         this.saldo = saldo;    
         this.tipo = tipo; 
         jogos = new JogoDados[10];
-        rodadas = 0;
+        rodadas = 0; 
     }
 
     // Método para permitir ao jogador escolher um jogo (JogoAzar, JogoGeneral, ou sair)
@@ -57,26 +57,41 @@ public abstract class Jogador{
     // Método para calcular estatísticas totais do jogador
     public int[] estatisticaTotalJogador(){
         int estatistica[] = new int[6];
-
-        for (JogoDados jogo : jogos) {
-            if (jogo != null) {
-                for (int i = 0; i < 6; i++){
-                    estatistica[i] += (estatisticaTotalJogoAzarPara1Player()[i] + estatisticaTotalJogoGeneralPara1Player()[i]);
-                    System.out.println(estatistica[i] + " ");
+        
+        for(int i=0; i<6; i++){
+            estatistica[i] = 0;
+        }
+        
+        System.out.println("== ESTATISTICA TOTAL JOGADOR ==");
+        
+        for(JogoDados jogo : jogos){
+            if(jogo != null){
+                for(int i=0; i<6; i++){
+                    estatistica[i] += jogo.getEStatistica()[i];
                 }
             }
         }
+        
+        for(int i=0; i<6; i++){
+            
+            System.out.println(estatistica[i]);
+        }
 
         return estatistica;
+
     }
 
     // Método para calcular estatísticas totais do JogoGeneral para o jogador
     public int[] estatisticaTotalJogoGeneralPara1Player(){
         int estatistica[] = new int[6];
 
-        for (JogoDados jogo : jogos) {
-            if (jogo instanceof JogoGeneral){
-                for (int i = 0; i < 6; i++){
+        for(int i=0; i<6; i++){
+            estatistica[i]=0;
+        }
+
+        for(JogoDados jogo : jogos){
+            if(jogo != null && jogo instanceof JogoGeneral){
+                for(int i=0; i<6; i++){
                     estatistica[i] += jogo.getEStatistica()[i];
                 }
             }
@@ -89,11 +104,15 @@ public abstract class Jogador{
     public int[] estatisticaTotalJogoAzarPara1Player(){
         int estatistica[] = new int[6];
 
-        for (JogoDados jogo : jogos){
-            if (jogo instanceof JogoAzar){
-                for (int i = 0; i < 6; i++){
+        for(int i=0; i<6; i++){
+            estatistica[i]=0;
+        }
+
+        for(JogoDados jogo : jogos){
+
+            if(jogo != null && jogo instanceof JogoAzar){
+                for(int i=0; i<6; i++){
                     estatistica[i] += jogo.getEStatistica()[i];
-                    System.out.println(estatistica[i] + "+" + jogo.getEStatistica()[i]);
                 }
             }
         }
@@ -136,6 +155,7 @@ public abstract class Jogador{
         for (int i = 0; i < 10; i++){
             if (jogos[i] == null){
                 jogos[i] = jogo;
+                return;
             }            
         }
     }
