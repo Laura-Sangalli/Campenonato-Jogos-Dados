@@ -68,7 +68,7 @@ public abstract class Jogador implements Serializable{
             estatistica[i] = 0;
         }
         
-        System.out.println("== ESTATISTICA TOTAL JOGADOR ==");
+        //System.out.println("== ESTATISTICA TOTAL JOGADOR ==");
         
         for(JogoDados jogo : jogos){
             if(jogo != null){
@@ -78,10 +78,10 @@ public abstract class Jogador implements Serializable{
             }
         }
         
-        for(int i=0; i<6; i++){
+        /*for(int i=0; i<6; i++){
             
             System.out.println(estatistica[i]);
-        }
+        }*/
 
         return estatistica;
 
