@@ -175,6 +175,7 @@ public abstract class Jogador implements Serializable{
         for (int i = 0; i < 10; i++){
             if (jogos[i] == null){
                 jogos[i] = jogo;
+                jogos[i].getResultadoFinal();
                 return;
             }            
         }
