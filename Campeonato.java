@@ -225,17 +225,17 @@ public class Campeonato{
 
         for(Jogador jogador : jogadores){
             if(jogador != null && jogador instanceof Maquina){
-                if(escolha == 1){
+                if(escolha == 1){//total campeonato
                     for(int i =0; i<6; i++){
                         estatistica[i] += jogador.estatisticaTotalJogador()[i];
                     }   
                 }
-                else if(escolha == 2){
+                else if(escolha == 2){//total azar
                     for(int i =0; i<6; i++){
                         estatistica[i] += jogador.estatisticaTotalJogoAzarPara1Player()[i];
                     }   
                 }
-                else if (escolha == 3){
+                else if (escolha == 3){//total general
                     for(int i =0; i<6; i++){
                         estatistica[i] += jogador.estatisticaTotalJogoGeneralPara1Player()[i];
                     }

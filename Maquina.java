@@ -51,8 +51,6 @@ public class Maquina extends Jogador implements JogarComoMaquina{
             setSaldo(this.saldo);
 
             // Imprime estatísticas do JogoGeneral e o saldo atual
-            System.out.println("====== ESTATISTICAS DO JOGO ======");
-            jogoG.analiseDeJogo();
             setJogo(jogoG);
             System.out.println("\nSaldo: "+ String.format("%.2f", getSaldo()));
         }
@@ -69,8 +67,6 @@ public class Maquina extends Jogador implements JogarComoMaquina{
 
             // Atualiza o saldo e imprime estatísticas do JogoAzar
             setSaldo(this.saldo);
-            System.out.println("====== ESTATISTICAS DO JOGO ======");
-            jogoA.analiseDeJogo();
             setJogo(jogoA);
             System.out.println("\nSaldo: "+ String.format("%.2f", getSaldo()));
         }
