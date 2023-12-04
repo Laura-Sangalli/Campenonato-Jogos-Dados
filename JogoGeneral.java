@@ -1,19 +1,15 @@
 public class JogoGeneral extends JogoDados{
 
-    private int rodadas[], estatistica[];
+    private int rodadas[];
 
     // método construtor JogoGeneral
     public JogoGeneral(){//inicia o jodo general com a quantidade de dados e o numero de rodadas
         super(5, "JogoG");
         rodadas = new int[13];
-        estatistica = new int[6];
         for(int i=0; i<13; i++){
             this.rodadas[i] = -1;
         }
 
-        for(int i=0; i<6; i++){
-            this.estatistica[i] = 0;
-        }
     } 
 
     // função que retorna o valor obtido para uma jogada em específico na respectiva rodada

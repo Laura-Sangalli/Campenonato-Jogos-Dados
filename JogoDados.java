@@ -42,14 +42,14 @@ public abstract class JogoDados implements Estatistica, Serializable{
     // o método a seguir exibirá a análise de quantas vezes cada face do dado foi sorteada durante este jogo
     public void analiseDeJogo(){
         for(int i=0; i < numFaces; i++){ 
-            System.out.println("DADO DE NUMERO " + (i + 1) + ": " + estatistica[i]);
+            System.out.println("DADO DE NUMERO " + (i + 1) + ": " + this.estatistica[i]);
         }
     }
 
     // o método abstrato da interface Estatísitca é implementado a seguir 
     public void somarFacesSorteadas(int estatistica[]){
         for(Dado dado : dados){
-            estatistica[dado.getSideUp() - 1] += 1;
+            this.estatistica[dado.getSideUp() - 1] += 1;
         }
     }
 

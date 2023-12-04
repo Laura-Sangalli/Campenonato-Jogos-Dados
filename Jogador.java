@@ -78,10 +78,11 @@ public abstract class Jogador implements Serializable{
             }
         }
         
-        /*for(int i=0; i<6; i++){
+        //for(int i=0; i<6; i++){
             
-            System.out.println(estatistica[i]);
-        }*/
+         //   System.out.println(estatistica[i]);
+        //}
+
 
         return estatistica;
 
