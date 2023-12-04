@@ -1,3 +1,8 @@
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
 import java.util.Scanner;
 
 public class Campeonato{
@@ -317,11 +322,46 @@ public class Campeonato{
     }
 
     public void gravarEmArquivo(){
+        File arquivo = new File("cartela.dat");
+        
+        try {
+            // o arquivo é criado 
+            FileOutputStream fout = new FileOutputStream(arquivo);
+            ObjectOutputStream oos = new ObjectOutputStream(fout);
 
+            // grava o vetor de jogadores no arquivo
+            oos.writeObject(jogadores);
+            oos.flush();
+            oos.close();
+            fout.close();
+            } // caso exista algum erro na gravação do arquivo, ele é mostrado por meio das operações abaixo
+            catch (Exception ex) {
+            System.err.println("erro: " + ex.toString());
+        }
     }
 
     public void lerDoArquivo(){
+        File arquivo = new File("cartela.dat");
         
+        try {
+            FileInputStream fin = new FileInputStream(arquivo);
+            ObjectInputStream oin = new ObjectInputStream(fin);
+        // os objetos do arquivo são lidos
+            
+            jogadores = (Jogador[]) oin.readObject();
+            oin.close();
+            fin.close();
+        
+        // o vetor de jogadores é percorrido
+            for (Jogador j : jogadores) {
+                if(j != null){
+                    j.getNome();
+                    j.getTipo();
+                }
+            }// caso exista algum erro na gravação do arquivo, ele é mostrado por meio das operações abaixo
+        }catch (Exception ex) {
+            System.err.println("erro: " + ex.toString());
+        }
     }
 
 
