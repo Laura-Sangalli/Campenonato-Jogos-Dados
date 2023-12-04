@@ -8,12 +8,14 @@ import java.util.Scanner;
 public class Campeonato{
     private Jogador jogadores[];
     private double saldo;
+    //private String cpf;
     Scanner teclado = new Scanner(System.in);
 
+    // método construtor
     public Campeonato(){
         this.jogadores = new Jogador[10];
         this.saldo = 100;
-        //this.cpf = ""; 
+
     }
 
     // verifica se o nome do jogador está presente na lista
@@ -108,11 +110,11 @@ public class Campeonato{
             }
         }
 
-        //teclado.close();
     }
 
+
     public void iniciarCampeonato(){
-        // antes de in
+        // antes de iniciar o campeonato é fundamental adicionar ao menos um jogador
         if(jogadores[0] == null){//verifica se tem algum jogador
             System.out.println("Adicione um jogador");
         }
@@ -161,7 +163,8 @@ public class Campeonato{
         }
     }
 
-    public int[] estatisticaCampeonatoJogoAzar(){
+    // apresenta a estatística para todos os jogadores
+    public int[] estatisticaCampeonatoJogadores(){
         int estatistica[] = new int[6];
 
         for(Jogador jogador : jogadores){
@@ -173,7 +176,8 @@ public class Campeonato{
         return estatistica;
     }
 
-    public int[] estatisticaCampeonatoJogoGeneral(){
+    // apresenta a estatística dos jogos dos humanos
+    public int[] estatisticaCampeonatoHumanos(){
         int estatistica[] = new int[6];
 
         for(Jogador jogador : jogadores){
@@ -185,7 +189,8 @@ public class Campeonato{
         return estatistica;
     }
 
-    public int[] estatisticaCampeonatoDeJogos(){
+    // apresenta a estatística dos jogos dos humanos
+    public int[] estatisticaCampeonatoMaquinas(){
         int estatistica[] = new int[6];
 
         for(Jogador jogador : jogadores){
@@ -199,17 +204,22 @@ public class Campeonato{
         return estatistica;
     }
 
+    // imprime o saldo, com a opção de escolher para qual tipo de jogador e tipo de jogo deseja fazê-lo
     public void imprimirSaldo(){
         int escolha = 0;
+
+        // opção de escolher para quais jogadores quer imprimir o saldo 
         while (escolha != 1 && escolha != 2 && escolha != 3) {
             System.out.println("1 - Saldo de todos os jogadores\n2 - Saldo dos jogadores humanos\n3 - Saldo dos jogadores maquinas");
             escolha = teclado.nextInt();
     
+            // verificação da escolha
             if(escolha != 1 && escolha != 2 && escolha != 3){
                 System.out.println("Valor invalido");
             }
         }
 
+        // busca-se realizar a opção escolhida
         if(escolha == 1){
             for(int i = 0; i<10;i++){
                 if(jogadores[i] != null){
@@ -238,9 +248,11 @@ public class Campeonato{
         }
     }
 
+    // imprime o extrato de acordo com as características que o jogador deseja, para tipo de jogo e jogador
     public void imprimirExtrato(){
         int escolha = 0;
         int dadosExtrato = 0;
+        // solicita-se para quais jogadores o usuário deseja visualizar o extrato e faz uma verificação da opção dada 
         while (escolha != 1 && escolha != 2 && escolha != 3) {
             System.out.println("1 - Extrato de todos os jogadores\n2 - Extrato dos jogadores humanos\n3 - Extrato dos jogadores maquinas");
             escolha = teclado.nextInt();
@@ -250,6 +262,7 @@ public class Campeonato{
             }
         }
 
+        // solicita-se para quais jogos o usuário deseja visualizar o extrato e faz uma verificação da opção dada 
         while (dadosExtrato != 1 && dadosExtrato != 2 && dadosExtrato != 3) {
             System.out.println("1 - Extrato de todos os jogos\n2 - Extrato do Jogo Azar \n3 - Extrato do Jogo General");
             dadosExtrato = teclado.nextInt();
@@ -259,6 +272,7 @@ public class Campeonato{
             }
         }
 
+        // switch case para efetuar a operação escolhida pelo usuário
         switch (escolha) {
             case 1: // extrato de todos os jogadores 
             {
@@ -295,8 +309,11 @@ public class Campeonato{
 
     }
 
+    // imprime a estatística do jogo, com opções para o usuário escolher quais estatísticas deseja visualizar
     public void imprimirEstatistica(){
         int escolha = 0;
+
+        // escoha e verifcação da opção escohida
         while (escolha != 1 && escolha != 2 && escolha != 3) {
             System.out.println("1 - Por jogador\n2 - Por jogos escolhidos por cada jogador\n3 - Total por jogos\n4 - Total do campeonato");
             escolha = teclado.nextInt();
@@ -306,6 +323,7 @@ public class Campeonato{
             }
         }
 
+        // switch case para realizar a opção escolhida
         switch (escolha) {
             case 1:
                 for(int i=0;i<10;i++){
@@ -321,6 +339,7 @@ public class Campeonato{
         }
     }
 
+    // método gravar em arquivo
     public void gravarEmArquivo(){
         File arquivo = new File("cartela.dat");
         
@@ -340,6 +359,7 @@ public class Campeonato{
         }
     }
 
+    // método ler do arquivo 
     public void lerDoArquivo(){
         File arquivo = new File("cartela.dat");
         

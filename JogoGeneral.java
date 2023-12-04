@@ -4,7 +4,7 @@ public class JogoGeneral extends JogoDados implements Serializable{
 
     private int rodadas[], estatistica[];
 
-
+    // método construtor JogoGeneral
     public JogoGeneral(){//inicia o jodo general com a quantidade de dados e o numero de rodadas
         super(5, "JogoG");
         rodadas = new int[13];
@@ -18,20 +18,24 @@ public class JogoGeneral extends JogoDados implements Serializable{
         }
     } 
 
+    // função que retorna o valor obtido para uma jogada em específico na respectiva rodada
     public int getRodadas(int pos){//retorna a rodada
         return rodadas[pos - 1];
     }
 
+    // função que reseta as rodadas, ou seja, leva seu valor a -1 para identificar que elas ainda não foram pontuadas 
     public void resetarRodadas(){
         for(int i=0;i<13; i++){
             rodadas[i] = -1;
         }
     }
 
+    // função toString, retorna a toString da superclasse
     public String toString(){
        return super.toString();
     } 
 
+    // verifica se o jogador ganhou ou perdeu o Jogo General, por meio da análise das regras
     public void resultado(){
         int soma=0, aux;
         aux = this.getRodadas(13);
@@ -39,26 +43,34 @@ public class JogoGeneral extends JogoDados implements Serializable{
         for(int i=1; i<=12; i++){
             soma += this.getRodadas(i);
         }
+        // imprime os valores obtidos no jogo de forma a organizar a vizualização se o jogador ganhou ou perdeu
         System.out.println("\nSoma: " + soma + "\nJogada aleatoria(13): " + aux);
+        // se o jogador ganhou
         if(soma > 2*(this.getRodadas(13))){
+            // método que registra o ganho ou perda do jogo na superclasse como um valor booleano
             setResultadoFinal(true);
         }
+        // se o jogador perdeu
         else{
             setResultadoFinal(false);
         } 
     }
 
-    public boolean validarRodada(int rodadaAtual){//verifica se a rodada ja foi escolhida anteriormente
+    
+    //verifica se a rodada ja foi escolhida anteriormente
+    public boolean validarRodada(int rodadaAtual){
         if(rodadas[rodadaAtual - 1] == -1){
             return true;
         }         
         return false;
     }
 
+    // função auxiliar para a estratégia da máquina que reseta a jogada específica que a máquina estava estimando 
     public void resetarJogadaDaMaquina(int jogadaEscolhida){
         rodadas[jogadaEscolhida - 1] = -1;   
     }
 
+    // método de pontuação da rodada
     public int pontuarRodada(int escolha) {
         int soma = 0, cont;
         boolean deuCerto = true;//variavel para verificar se a função irá funcionar, ou seja, retornar um valor
