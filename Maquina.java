@@ -1,7 +1,6 @@
 import java.util.Random;
-import java.io.Serializable;
 
-public class Maquina extends Jogador implements JogarComoMaquina, Serializable{
+public class Maquina extends Jogador implements JogarComoMaquina{
     // Declaração de variáveis de instância
     private JogoAzar jogoA;
     private JogoGeneral jogoG;

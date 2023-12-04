@@ -1,7 +1,8 @@
+import java.io.Serializable;
 import java.util.Scanner;
 
 // Classe abstrata que representa um jogador genérico
-public abstract class Jogador{
+public abstract class Jogador implements Serializable{
     private String nome;
     private double saldo;
     private JogoDados jogos[];
@@ -199,8 +200,11 @@ public abstract class Jogador{
                         if(jogos[i].getResultadoFinal() == true){
                             extrato += "Situação do jogo: ganhou\n";
                         }
-                        else{
+                        else if(jogos[i].getResultadoFinal() == false){
                             extrato += "Situação do jogo: perdeu\n";
+                        }
+                        else{
+                            System.out.println("O jogador não jogou nenhum jogo");
                         }
                     }
                 }
@@ -216,8 +220,11 @@ public abstract class Jogador{
                         if(jogos[i].getResultadoFinal() == true){
                             extrato += "Situação do jogo: ganhou\n";
                         }
-                        else{
+                        else if(jogos[i].getResultadoFinal() == false){
                             extrato += "Situação do jogo: perdeu\n";
+                        }
+                        else{
+                            System.out.println("O jogador não jogou o jogo Azar");
                         }
                     }
                 }
@@ -232,17 +239,21 @@ public abstract class Jogador{
                         
                         extrato += "\n" + "Valor apostado: " + apostas[i] + "\t\t";
                         
-                        if(jogos[i].getResultadoFinal()){
+                        if(jogos[i].getResultadoFinal() == true){
                             extrato += "\nSituação do jogo: ganhou\n";
                         }
-                        else{
+                        else if (jogos[i].getResultadoFinal() == false){
                             extrato += "\n Situação do jogo: perdeu\n";
+                        }
+                        else{
+                            System.out.println("O jogador não jogou o jogo General");
                         }
                     }
                 }
                 break;
             }
             default:
+            System.out.println("Valor invalido");
                 break;
         }
 
