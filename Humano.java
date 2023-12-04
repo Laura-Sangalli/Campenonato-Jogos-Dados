@@ -38,8 +38,8 @@ public class Humano extends Jogador implements JogarComoHumano{
                 this.saldo -= aposta;
             }
             
-            System.out.println("====== ESTATISTICAS DO JOGO ======");
-            jogoG.analiseDeJogo();
+            //System.out.println("====== ESTATISTICAS DO JOGO ======");
+            //jogoG.analiseDeJogo();
             
             setJogo(jogoG);
             setSaldo(this.saldo); 
@@ -55,8 +55,8 @@ public class Humano extends Jogador implements JogarComoHumano{
                 this.saldo -= aposta;
             }
             
-            System.out.println("====== ESTATISTICAS DO JOGO ======");
-            jogoA.analiseDeJogo();
+            //System.out.println("====== ESTATISTICAS DO JOGO ======");
+            //jogoA.analiseDeJogo();
             
             setJogo(jogoA);
             setSaldo(this.saldo);
