@@ -55,7 +55,7 @@ public abstract class Jogador implements Serializable{
                 string += " " + pontuacao;
             }
         }
-        //System.out.println(string);
+
 
         return string;
     }

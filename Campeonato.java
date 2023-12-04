@@ -163,40 +163,82 @@ public class Campeonato{
         }
     }
 
-    // apresenta a estatística do Jogo Azar
-    public int[] estatisticaCampeonatoJogoAzar(){
-        int estatistica[] = new int[6];
-
-        for(Jogador jogador : jogadores){
-            for(int i =0; i<6; i++){
-                estatistica[i] += jogador.estatisticaTotalJogoAzarPara1Player()[i];
-            }
-        }
-
-        return estatistica;
-    }
-
-    // apresenta a estatística do jogo General
-    public int[] estatisticaCampeonatoJogoGeneral(){
-        int estatistica[] = new int[6];
-
-        for(Jogador jogador : jogadores){
-            for(int i =0; i<6; i++){
-                estatistica[i] += jogador.estatisticaTotalJogoGeneralPara1Player()[i];
-            }
-        }
-
-        return estatistica;
-    }
-
-    // apresenta a estatística dos jogos
-    public int[] estatisticaCampeonatoDeJogos(){
+    // apresenta a estatística para todos os jogadores
+    public int[] estatisticaCampeonatoJogadores(int escolha){
         int estatistica[] = new int[6];
 
         for(Jogador jogador : jogadores){
             if(jogador != null){
-                for(int i =0; i<6; i++){
-                estatistica[i] += jogador.estatisticaTotalJogador()[i];
+                if(escolha == 1){
+                    for(int i =0; i<6; i++){
+                        estatistica[i] += jogador.estatisticaTotalJogador()[i];
+                    }
+                }
+                else if(escolha == 2){
+                    for(int i =0; i<6; i++){
+                        estatistica[i] += jogador.estatisticaTotalJogoAzarPara1Player()[i];
+                    }   
+                }
+                else if (escolha == 3){
+                    for(int i =0; i<6; i++){
+                        estatistica[i] += jogador.estatisticaTotalJogoGeneralPara1Player()[i];
+                    }
+                }
+            }
+            
+        }
+
+        return estatistica;
+    }
+
+    // apresenta a estatística dos jogos dos humanos
+    public int[] estatisticaCampeonatoHumanos(int escolha){
+        int estatistica[] = new int[6];
+
+        for(Jogador jogador : jogadores){
+            if(jogador != null && jogador instanceof Humano){
+                if(escolha == 1){
+                    for(int i =0; i<6; i++){
+                        estatistica[i] += jogador.estatisticaTotalJogador()[i];
+                    }   
+                }
+                else if(escolha == 2){
+                    for(int i =0; i<6; i++){
+                        estatistica[i] += jogador.estatisticaTotalJogoAzarPara1Player()[i];
+                    }   
+                }
+                else if (escolha == 3){
+                    for(int i =0; i<6; i++){
+                        estatistica[i] += jogador.estatisticaTotalJogoGeneralPara1Player()[i];
+                    }
+                }
+            }
+            
+        }
+
+        return estatistica;
+    }
+
+    // apresenta a estatística dos jogos dos humanos
+    public int[] estatisticaCampeonatoMaquinas(int escolha){
+        int estatistica[] = new int[6];
+
+        for(Jogador jogador : jogadores){
+            if(jogador != null && jogador instanceof Maquina){
+                if(escolha == 1){
+                    for(int i =0; i<6; i++){
+                        estatistica[i] += jogador.estatisticaTotalJogador()[i];
+                    }   
+                }
+                else if(escolha == 2){
+                    for(int i =0; i<6; i++){
+                        estatistica[i] += jogador.estatisticaTotalJogoAzarPara1Player()[i];
+                    }   
+                }
+                else if (escolha == 3){
+                    for(int i =0; i<6; i++){
+                        estatistica[i] += jogador.estatisticaTotalJogoGeneralPara1Player()[i];
+                    }
                 }
             }
         }
@@ -311,32 +353,51 @@ public class Campeonato{
 
     // imprime a estatística do jogo, com opções para o usuário escolher quais estatísticas deseja visualizar
     public void imprimirEstatistica(){
-        int escolha = 0;
+        int estatistica[] = new int[6];
+        int valor = 0;
+        int tipo=0;
+       while (tipo != 1 && tipo != 2 && tipo != 3) {
+           System.out.println("Escolha para quais tipos de jogadores você deseja obter as estatísticas:\n1 - Todos;\n2 - Humanos;\n3 - Máquinas.");
+           tipo = teclado.nextInt();
 
-        // escoha e verifcação da opção escohida
-        while (escolha != 1 && escolha != 2 && escolha != 3) {
-            System.out.println("1 - Por jogador\n2 - Por jogos escolhidos por cada jogador\n3 - Total por jogos\n4 - Total do campeonato");
-            escolha = teclado.nextInt();
-    
-            if(escolha != 1 && escolha != 2 && escolha != 3 && escolha != 4){
-                System.out.println("Valor invalido");
-            }
-        }
+           if(tipo != 1 && tipo != 2 && tipo != 3){
+               System.out.println("Valor inválido informado.");
+           }
+       }
+       
+       while(valor != 1 && valor != 2 && valor != 3 ){
+           
+           System.out.println("Escolha quais estatisticas deseja obter: \n1 - Estatística total campeonato;\n2 - Estatísitca total Jogo Azar\n3 - Estatística total Jogo General;");
+           valor = teclado.nextInt();
+           switch (tipo) {
+               case 1:
+                   estatistica = estatisticaCampeonatoJogadores(valor);
+                   break;
+               case 2:
+                   estatistica = estatisticaCampeonatoHumanos(valor);
+                   break;
+               case 3: 
+                   estatistica = estatisticaCampeonatoMaquinas(valor);
+                   break;
+               default:
+                   System.out.println("Valor inválido informado.");
+                   break;
+           }
+       }
 
-        // switch case para realizar a opção escolhida
-        switch (escolha) {
-            case 1:
-                for(int i=0;i<10;i++){
-                    if(jogadores[i] != null){
-                        
-                    }
-                }
-                break;
-        
-            default:
-                System.out.println("Jogada Invalida");
-                break;
-        }
+       System.out.println("==================================================================");
+       if(valor == 1){
+            System.out.println("ESTATISTICAS TOTAIS DO CAMEPONATO");
+       }
+       else if(valor == 2){
+            System.out.println("ESTATISTICAS TOTAIS JOGO AZAR");
+       }
+       else if(valor == 3){
+            System.out.println("ESTATISTICAS TOTAIS JOGO GENERAL");
+       }
+       for(int i=0; i<6; i++){
+            System.out.println("Dado de numero " + (i + 1) + ": " + estatistica[i]);
+       }
     }
 
     public void gravarEmArquivo() {

@@ -7,6 +7,7 @@ public abstract class JogoDados implements Estatistica, Serializable{
     private String nomeJogo;
     Dado[] dados;
 
+    // Método construtor 1
     public JogoDados(int numDados, String nomeJogo) {
         this.numDados = numDados;
         this.nomeJogo = nomeJogo;
