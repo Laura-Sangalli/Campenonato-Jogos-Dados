@@ -4,10 +4,13 @@ public class UsaCampeonato {
     private static Campeonato campeonato;
 
     public static void main(String[] args) {
+        // uma instância do campeonato é criada 
         campeonato = new Campeonato();
         Scanner teclado = new Scanner(System.in);
         int opcao = 0;
-
+        
+        // o método do while abaixo prmitirá que o usuário escolha entre um conjuntos de opções a serem realizadas no campeonato,
+        // até o momento em que ele desejar sair do campeonato.
         do {
             System.out.println("\n\tMenu");
             System.out.println("1 - Adicionar Jogador.");
@@ -24,7 +27,7 @@ public class UsaCampeonato {
             System.out.print("Escolha uma opção:");
             opcao = teclado.nextInt();
 
-
+            // o switch case abaixo é responsável por efetuar a ação escolhida pelo jogador 
             switch (opcao) {
                 case 1:
                     campeonato.incluirJogador();

@@ -10,6 +10,7 @@ public class JogoAzar extends JogoDados{
     public void resultado(){
         System.out.println("==================================================================");
         this.rolarDados(); // Rola os dados
+
         int res;
         System.out.print(this); // Exibe o estado atual dos dados
         res = dados[0].getSideUp() + dados[1].getSideUp(); // Calcula a soma dos valores dos dados
@@ -44,14 +45,14 @@ public class JogoAzar extends JogoDados{
                 // Verifica se o jogador ganhou
                 if (res == res1){
                     System.out.println("O jogador ganhou :)");
-                    // atribui o valor true a variavel resutadoFinal, que sera utilizada na montagem da cartela
+                    // atribui o valor true a variavel resutadoFinal, que sera utilizada na montagem do extrato
                     setResultadoFinal(true);
 
                 } 
                 // Verifica se o jogador perdeu
                 else if (res == 2 || res == 3 || res == 12){
                     System.out.println("O jogador perdeu :(");
-                     // atribui o valor true a variavel resutadoFinal, que sera utilizada na montagem da cartela
+                     // atribui o valor true a variavel resutadoFinal, que sera utilizada na montagem do extrato
                     setResultadoFinal(false);
 
                 }

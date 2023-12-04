@@ -1,7 +1,7 @@
 import java.io.Serializable;
 
 public class JogoGeneral extends JogoDados implements Serializable{
-    //private Dado dados[] = new Dado[5];
+
     private int rodadas[], estatistica[];
 
 

@@ -7,7 +7,7 @@ public class Maquina extends Jogador implements JogarComoMaquina {
     private double saldo;
     private Random random;
 
-    // Construtor que inicializa a máquina com um nome, saldo, e tipo de jogador
+    // Construtor que inicializa a máquina com um nome, saldo, e chama o construtor da superclasse 
     public Maquina(String nome, double saldo, char tipo) {
         super(nome, saldo, tipo);
         this.saldo = saldo;
@@ -21,8 +21,11 @@ public class Maquina extends Jogador implements JogarComoMaquina {
         // Escolhe aleatoriamente entre os dois jogos disponíveis
         int jogoEscolhido = random.nextInt(2) + 1;
 
+        // o valor apostado é identificado na classe JogoDados por meio do método set, para ser armazenado e utilizado 
+        // posteriormente 
         this.setApostas(aposta);
 
+        // o nome do jogador responsável pelo jogo da vez é impresso
         System.out.println("JOGADOR(A) DA RODADA: " + this.getNome() + " (M)");
 
         // Se o jogo escolhido for JogoGeneral (2)

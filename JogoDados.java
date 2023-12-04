@@ -2,11 +2,12 @@ public abstract class JogoDados implements Estatistica{
     private int numDados;
     private boolean resultadoFinal;
     private int estatistica[];
+    private String nomeJogo;
     Dado[] dados;
 
     public JogoDados(int numDados, String nomeJogo) {
         this.numDados = numDados;
-        //this.nomeJogo = nomeJogo;
+        this.nomeJogo = nomeJogo;
         this.dados = new Dado[numDados];
         this.estatistica = new int[6];
         for (int i = 0; i < numDados; i++) {
@@ -18,14 +19,31 @@ public abstract class JogoDados implements Estatistica{
         }
     }
 
+    // sobrecarga do método construtor da classe JogoDados. Agora, o jogo não utiliza a variável nomeJogo (String) para definir seu nome
+    public JogoDados(int numDados){
+        this.numDados = numDados;
+        this.dados = new Dado[numDados];
+        this.estatistica = new int[6];
+        for (int i = 0; i < numDados; i++) {
+            this.dados[i] = new Dado();
+        }
+
+        for(int i=0; i<6; i++){
+            estatistica[i] = 0;
+        }
+    }
+
+    // método abstrato para ser obrigatoriamente definido nas classes que herdam esta classe 
     public abstract void resultado();
 
+    // o método a seguir exibirá a análise de quantas vezes cada face do dado foi sorteada durante este jogo
     public void analiseDeJogo(){
-        for(int i=0; i<6; i++){ 
+        for(int i=0; i < numDados; i++){ 
             System.out.println("DADO DE NUMERO " + (i + 1) + ": " + estatistica[i]);
         }
     }
 
+    // o método abstrato da interface Estatísitca é implementado a seguir 
     public void somarFacesSorteadas(int estatistica[]){
         for(Dado dado : dados){
             estatistica[dado.getSideUp() - 1] += 1;
@@ -38,9 +56,12 @@ public abstract class JogoDados implements Estatistica{
         for(Dado dado : this.dados){
             dado.roll();
         }
+        // logo após o sorteio dos dados, o método somarFacesSorteadas é chamado para calcular a estatística do jogo
         this.somarFacesSorteadas(this.estatistica);
     }
 
+    // método toString, responsável por imprimir os valores que foram obtidos por meio do sorteio dos dados
+    // para então proceder com o jogo 
     public String toString(){
   
         String valores = "Os valores obtidos são: ";
@@ -51,14 +72,18 @@ public abstract class JogoDados implements Estatistica{
         return valores;
     } 
 
+    // obtém o vetor estatísica para ser utilizado em outras classes, de forma a proceder com a análise do jogo
     public int[] getEStatistica(){
         return estatistica;
     }
 
+    // atribui um valor para a variável resultadoFinal; True: ganhou o jogo. False: perdeu o jogo.
     public void setResultadoFinal(boolean resultadoFinal) {
         this.resultadoFinal = resultadoFinal;
     }
 
+    // retorna o valor de resultadoFinal para que a análise de ganho ou perda do jogo possa ser realizada
+    // em outras classes
     public boolean getResultadoFinal(){
         return this.resultadoFinal;
     }
