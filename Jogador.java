@@ -77,12 +77,6 @@ public abstract class Jogador implements Serializable{
                 }
             }
         }
-        
-        //for(int i=0; i<6; i++){
-            
-         //   System.out.println(estatistica[i]);
-        //}
-
 
         return estatistica;
 
@@ -171,13 +165,12 @@ public abstract class Jogador implements Serializable{
     }
 
     // Método para definir o jogo atual do jogador
-    public void setJogo(JogoDados jogo){
-        for (int i = 0; i < 10; i++){
-            if (jogos[i] == null){
-                jogos[i] = jogo;
-                return;
-            }            
-        }
+    public void setJogo(JogoDados jogo, int i){
+        if (jogos[i] == null){
+            jogos[i] = jogo;
+            //jogos[i].setResultadoFinal(jogo.getResultadoFinal());
+            return;
+        }            
     }
 
     public void extratoIndividual(int dadosExtrato){
@@ -197,6 +190,8 @@ public abstract class Jogador implements Serializable{
                         }
                         
                         extrato += "Valor apostado: " + apostas[i] + "\t\t";
+
+                        //System.out.println(jogos[i].getResultadoFinal());
 
                         if(jogos[i].getResultadoFinal() == true){
                             extrato += "Situação do jogo: ganhou\n";

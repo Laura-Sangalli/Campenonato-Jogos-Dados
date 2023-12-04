@@ -26,7 +26,7 @@ public class Maquina extends Jogador implements JogarComoMaquina{
         this.setApostas(aposta);
 
         // o nome do jogador responsável pelo jogo da vez é impresso
-        System.out.println("JOGADOR(A) DA RODADA: " + this.getNome() + " (M)");
+        System.out.println("JOGADOR(A) DA RODADA" + getRodadas() + ": " + this.getNome() + " (M)");
 
         // Se o jogo escolhido for JogoGeneral (2)
         if (jogoEscolhido == 2) {
@@ -39,6 +39,7 @@ public class Maquina extends Jogador implements JogarComoMaquina{
 
             // Verifica se a máquina ganhou ou perdeu o JogoGeneral e ajusta o saldo
             jogoG.resultado();
+            setJogo(jogoG, getRodadas());
             if (jogoG.getResultadoFinal() == true){
                 System.out.println("O jogador venceu o Jogo General :)\n");
                 this.saldo += aposta;
@@ -51,15 +52,17 @@ public class Maquina extends Jogador implements JogarComoMaquina{
             setSaldo(this.saldo);
 
             // Imprime estatísticas do JogoGeneral e o saldo atual
-            setJogo(jogoG);
+            //System.out.println("====== ESTATISTICAS DO JOGO ======");
+            //jogoG.analiseDeJogo();
             System.out.println("\nSaldo: "+ String.format("%.2f", getSaldo()));
         }
         // Se o jogo escolhido for JogoAzar (1)
         else if (jogoEscolhido == 1){
             // Simula o resultado do JogoAzar e ajusta o saldo
             jogoA.resultado();
+            setJogo(jogoA, getRodadas());
             
-            if (jogoA.getResultadoFinal()){
+            if (jogoA.getResultadoFinal() == true){
                 this.saldo += aposta;
             } else {
                 this.saldo -= aposta;
@@ -67,7 +70,6 @@ public class Maquina extends Jogador implements JogarComoMaquina{
 
             // Atualiza o saldo e imprime estatísticas do JogoAzar
             setSaldo(this.saldo);
-            setJogo(jogoA);
             System.out.println("\nSaldo: "+ String.format("%.2f", getSaldo()));
         }
     }

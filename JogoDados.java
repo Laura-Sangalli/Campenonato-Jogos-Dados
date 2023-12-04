@@ -11,6 +11,7 @@ public abstract class JogoDados implements Estatistica, Serializable{
     public JogoDados(int numDados, String nomeJogo) {
         this.numDados = numDados;
         this.nomeJogo = nomeJogo;
+        this.resultadoFinal = false;
         this.dados = new Dado[numDados];
         this.estatistica = new int[6];
         for (int i = 0; i < numDados; i++) {
