@@ -45,8 +45,32 @@ public class UsaCampeonato {
                     campeonato.imprimirExtrato();
                     break;
                 case 6:
+                    int valor = 0;
+                    while(valor != 1 && valor != 2 && valor != 3 ){
+                        System.out.println("Escolha quais estatisticas deseja obter: \n1 - EStatística total campeonato;\nn2 - EStatísitca total Jogo General\n3 - Estatística total Jogo Azar;");
+                        valor = teclado.nextInt();
+                        switch (valor) {
+                            case 1:
+                                campeonato.estatisticaCampeonatoDeJogos();
+                                break;
+                            case 2:
+                                campeonato.estatisticaCampeonatoJogoGeneral();
+                                break;
+                            case 3: 
+                                campeonato.estatisticaCampeonatoJogoAzar();
+                                break;
+                            default:
+                                System.out.println("Valor inválido informado.");
+                                break;
+                        }
+                    }
+                    break;                
+                case 7: 
+                    campeonato.gravarEmArquivo();
+                    break;
+                case 8: 
                     campeonato.lerDoArquivo();
-                    break;                 
+                    break;
                 case 9:
                     System.out.println("Encerrando o programa...");
                     break;
