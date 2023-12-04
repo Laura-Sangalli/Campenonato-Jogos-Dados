@@ -5,6 +5,7 @@ public abstract class JogoDados implements Estatistica{
     private String nomeJogo;
     Dado[] dados;
 
+    // Método construtor 1
     public JogoDados(int numDados, String nomeJogo) {
         this.numDados = numDados;
         this.nomeJogo = nomeJogo;

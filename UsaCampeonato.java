@@ -42,28 +42,82 @@ public class UsaCampeonato {
                     campeonato.imprimirSaldo();
                     break;
                 case 5:
-                    campeonato.imprimirExtrato();
-                    break;
-                case 6:
-                     int valor = 0;
+                    int valor = 0;
                     while(valor != 1 && valor != 2 && valor != 3 ){
-                        System.out.println("Escolha quais estatisticas deseja obter: \n1 - EStatística total campeonato;\n2 - EStatísitca total Jogo General\n3 - Estatística total Jogo Azar;");
+                        System.out.println("Escolha quais extratos deseja obter: \n1 - Extrato de ambos os jogos;\n2 - Extrato Jogo General\n3 - Extrato Jogo Azar;");
                         valor = teclado.nextInt();
                         switch (valor) {
                             case 1:
-                                campeonato.estatisticaCampeonatoDeJogos();
+                            int escolha = 0;
+                            // solicita-se para quais jogadores o usuário deseja visualizar o extrato e faz uma verificação da opção dada 
+                            while (escolha != 1 && escolha != 2 && escolha != 3) {
+                                System.out.println("1 - Extrato de todos os jogadores\n2 - Extrato dos jogadores humanos\n3 - Extrato dos jogadores maquinas");
+                                escolha = teclado.nextInt();
+                        
+                                if(escolha != 1 && escolha != 2 && escolha != 3){
+                                    System.out.println("Valor invalido");
+                                }
+                            }
+                            if(escolha == 1){
+                                //extrato todos os jogadores.todos os jogos
+                            }
+                            else if(escolha == 2){
+                                //extratohumanos.todososjogos
+                            }
+                            else{
+                                //extratomaquina.todososjogos
+                            }
                                 break;
                             case 2:
-                                campeonato.estatisticaCampeonatoJogoGeneral();
+                            escolha = 0;
+                            // solicita-se para quais jogadores o usuário deseja visualizar o extrato e faz uma verificação da opção dada 
+                            while (escolha != 1 && escolha != 2 && escolha != 3) {
+                                System.out.println("1 - Extrato de todos os jogadores\n2 - Extrato dos jogadores humanos\n3 - Extrato dos jogadores maquinas");
+                                escolha = teclado.nextInt();
+                        
+                                if(escolha != 1 && escolha != 2 && escolha != 3){
+                                    System.out.println("Valor invalido");
+                                }
+                            }
+                            if(escolha == 1){
+                                //extrato todos os jogadores.JogoGeneral
+                            }
+                            else if(escolha == 2){
+                                //extratohumanos.JogoGeneral
+                            }
+                            else{
+                                //extratomaquina.JogoGeneral
+                            }
                                 break;
                             case 3: 
-                                campeonato.estatisticaCampeonatoJogoAzar();
+                            escolha = 0;
+                            // solicita-se para quais jogadores o usuário deseja visualizar o extrato e faz uma verificação da opção dada 
+                            while (escolha != 1 && escolha != 2 && escolha != 3) {
+                                System.out.println("1 - Extrato de todos os jogadores\n2 - Extrato dos jogadores humanos\n3 - Extrato dos jogadores maquinas");
+                                escolha = teclado.nextInt();
+                        
+                                if(escolha != 1 && escolha != 2 && escolha != 3){
+                                    System.out.println("Valor invalido");
+                                }
+                            }
+                            if(escolha == 1){
+                                //extrato todos os jogadores.JogoAzar
+                            }
+                            else if(escolha == 2){
+                                //extratohumanos.JogoAzar
+                            }
+                            else{
+                                //extrato maquinas.JogoAzar
+                            }
                                 break;
                             default:
                                 System.out.println("Valor inválido informado.");
                                 break;
                         }
                     }
+                    break;
+                case 6:
+                    campeonato.imprimirEstatistica();
                     break;                
                 case 7: 
                     campeonato.gravarEmArquivo();
