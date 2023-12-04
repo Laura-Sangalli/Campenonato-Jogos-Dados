@@ -1,5 +1,6 @@
+import java.io.Serializable;
 // Classe que representa um jogo de azar, herdando de JogoDados
-public class JogoAzar extends JogoDados{
+public class JogoAzar extends JogoDados implements Serializable{
     
     // Construtor que chama o construtor da classe pai (JogoDados) com parâmetros específicos
     public JogoAzar(){

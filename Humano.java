@@ -1,6 +1,7 @@
 import java.util.Scanner;
+import java.io.Serializable;
 
-public class Humano extends Jogador implements JogarComoHumano{
+public class Humano extends Jogador implements JogarComoHumano, Serializable{
     //private String cpf, agencia, conta;
     private double saldo;
     private JogoGeneral jogoG;

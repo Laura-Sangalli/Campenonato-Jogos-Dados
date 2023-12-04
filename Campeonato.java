@@ -163,8 +163,8 @@ public class Campeonato{
         }
     }
 
-    // apresenta a estatística para todos os jogadores
-    public int[] estatisticaCampeonatoJogadores(){
+    // apresenta a estatística do Jogo Azar
+    public int[] estatisticaCampeonatoJogoAzar(){
         int estatistica[] = new int[6];
 
         for(Jogador jogador : jogadores){
@@ -176,8 +176,8 @@ public class Campeonato{
         return estatistica;
     }
 
-    // apresenta a estatística dos jogos dos humanos
-    public int[] estatisticaCampeonatoHumanos(){
+    // apresenta a estatística do jogo General
+    public int[] estatisticaCampeonatoJogoGeneral(){
         int estatistica[] = new int[6];
 
         for(Jogador jogador : jogadores){
@@ -189,8 +189,8 @@ public class Campeonato{
         return estatistica;
     }
 
-    // apresenta a estatística dos jogos dos humanos
-    public int[] estatisticaCampeonatoMaquinas(){
+    // apresenta a estatística dos jogos
+    public int[] estatisticaCampeonatoDeJogos(){
         int estatistica[] = new int[6];
 
         for(Jogador jogador : jogadores){
@@ -231,8 +231,8 @@ public class Campeonato{
 
         else if(escolha == 2){
             for(int i = 0; i<10;i++){
-                System.out.println("Jogador " + i);
                 if(jogadores[i] != null && (jogadores[i].getTipo() == 'h' || jogadores[i].getTipo() == 'H')){
+                    System.out.println("Jogador " + i);
                     System.out.println(String.format("%.2f", jogadores[i].getSaldo()) + "\n");
                 }
             }
@@ -240,8 +240,8 @@ public class Campeonato{
 
         else{
             for(int i = 0; i<10;i++){
-                System.out.println("Jogador " + i);
                 if(jogadores[i] != null && (jogadores[i].getTipo() == 'm' || jogadores[i].getTipo() == 'M')){
+                    System.out.println("Jogador " + i);
                     System.out.println(String.format("%.2f", jogadores[i].getSaldo()) + "\n");
                 }
             }
@@ -339,12 +339,11 @@ public class Campeonato{
         }
     }
 
-    // método gravar em arquivo
-    public void gravarEmArquivo(){
+    public void gravarEmArquivo() {
         File arquivo = new File("cartela.dat");
-        
+
         try {
-            // o arquivo é criado 
+            // o arquivo é criado
             FileOutputStream fout = new FileOutputStream(arquivo);
             ObjectOutputStream oos = new ObjectOutputStream(fout);
 
@@ -353,36 +352,34 @@ public class Campeonato{
             oos.flush();
             oos.close();
             fout.close();
-            } // caso exista algum erro na gravação do arquivo, ele é mostrado por meio das operações abaixo
-            catch (Exception ex) {
+        } 
+        catch (Exception ex) {
             System.err.println("erro: " + ex.toString());
         }
     }
 
-    // método ler do arquivo 
-    public void lerDoArquivo(){
+    // método ler do arquivo
+    public void lerDoArquivo() {
         File arquivo = new File("cartela.dat");
-        
+
         try {
             FileInputStream fin = new FileInputStream(arquivo);
             ObjectInputStream oin = new ObjectInputStream(fin);
-        // os objetos do arquivo são lidos
-            
+            // os objetos do arquivo são lidos
+            // Corrigindo o casting e atribuindo ao vetor de jogadores
             jogadores = (Jogador[]) oin.readObject();
             oin.close();
             fin.close();
-        
-        // o vetor de jogadores é percorrido
+
+            // o vetor de jogadores é percorrido
             for (Jogador j : jogadores) {
-                if(j != null){
-                    j.getNome();
-                    j.getTipo();
+                if (j != null) {
+                    // Aqui você pode fazer algo com os jogadores lidos, por exemplo, imprimi-los
+                    System.out.println("Nome: " + j.getNome() + ", Tipo: " + j.getTipo());
                 }
-            }// caso exista algum erro na gravação do arquivo, ele é mostrado por meio das operações abaixo
-        }catch (Exception ex) {
+            }
+        } catch (Exception ex) {
             System.err.println("erro: " + ex.toString());
         }
     }
-
-
 }

@@ -1,6 +1,7 @@
 import java.util.Random;
+import java.io.Serializable;
 
-public class Maquina extends Jogador implements JogarComoMaquina {
+public class Maquina extends Jogador implements JogarComoMaquina, Serializable{
     // Declaração de variáveis de instância
     private JogoAzar jogoA;
     private JogoGeneral jogoG;
@@ -8,7 +9,7 @@ public class Maquina extends Jogador implements JogarComoMaquina {
     private Random random;
 
     // Construtor que inicializa a máquina com um nome, saldo, e chama o construtor da superclasse 
-    public Maquina(String nome, double saldo, char tipo) {
+    public Maquina(String nome, double saldo, char tipo){
         super(nome, saldo, tipo);
         this.saldo = saldo;
         jogoA = new JogoAzar();
