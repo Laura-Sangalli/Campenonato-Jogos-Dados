@@ -7,6 +7,7 @@ public abstract class Jogador implements Serializable{
     private double saldo;
     private JogoDados jogos[];
     private double apostas[];
+    private int resultadoFinal[]; //
     private char tipo;
     private int rodadas;
 
@@ -16,8 +17,13 @@ public abstract class Jogador implements Serializable{
         this.saldo = saldo;    
         this.tipo = tipo; 
         this.apostas = new double[10];
+        this.resultadoFinal = new int[10];
         jogos = new JogoDados[10];
         rodadas = 0; 
+
+        for(int i=0; i<10; i++){
+            resultadoFinal[i] = 0;
+        }
     }
 
     // Método para permitir ao jogador escolher um jogo (JogoAzar, JogoGeneral, ou sair)
@@ -164,6 +170,20 @@ public abstract class Jogador implements Serializable{
         }
     }
 
+    public void setVetorDeResultados(JogoDados jogo){
+        for(int i=0; i<10; i++){
+            if(resultadoFinal[i] != 1 && resultadoFinal[i] != -1){
+               if(jogo.getResultadoFinal() == true){
+                this.resultadoFinal[i] = 1;
+               }
+               else{
+                this.resultadoFinal[i] = -1;
+               }
+                return;
+            }
+        }
+    }
+ 
     // Método para definir o jogo atual do jogador
     public void setJogo(JogoDados jogo, int i){
         if (jogos[i] == null){
@@ -180,27 +200,30 @@ public abstract class Jogador implements Serializable{
             case 1:{ // extrato de todos os jogos 
                 for(int i=0; i<10; i++){
                     if(jogos[i] != null){
+                        setVetorDeResultados(jogos[i]);
+                        
                         if(jogos[i] instanceof JogoGeneral){
                             jogo = (JogoGeneral) jogos[i];
+                            
                             extrato += "\nJOGO GENERAL: ";
                             extrato += mostrarJogadasExecutadas(jogo) + "\n" ;
                         }
                         else{
                             extrato += "\nJOGO AZAR: \t";
-                        }
-                        
-                        extrato += "Valor apostado: " + apostas[i] + "\t\t";
-
-                        //System.out.println(jogos[i].getResultadoFinal());
-
-                        if(jogos[i].getResultadoFinal() == true){
-                            extrato += "Situação do jogo: ganhou\n";
-                        }
-                        else if(jogos[i].getResultadoFinal() == false){
-                            extrato += "Situação do jogo: perdeu\n";
-                        }
-                        else{
-                            System.out.println("O jogador não jogou nenhum jogo");
+                            
+                            extrato += "Valor apostado: " + apostas[i] + "\t\t";
+                            
+                            //System.out.println(jogos[i].getResultadoFinal());
+                            
+                            if(this.resultadoFinal[i] == 1){
+                                extrato += "Situação do jogo: ganhou\n";
+                            }
+                            else if(this.resultadoFinal[i] == -1){
+                                extrato += "Situação do jogo: perdeu\n";
+                            }
+                            else{
+                                System.out.println("O jogador não jogou nenhum jogo");
+                            }
                         }
                     }
                 }
@@ -211,16 +234,17 @@ public abstract class Jogador implements Serializable{
                     if(jogos[i] != null && jogos[i] instanceof JogoAzar){
                         extrato += "\nJOGO AZAR: \t";
                         extrato += "Valor apostado: " + apostas[i] + "\t\t";
+                        setVetorDeResultados(jogos[i]);
                         
                         
-                        if(jogos[i].getResultadoFinal() == true){
+                        if(this.resultadoFinal[i] == 1){
                             extrato += "Situação do jogo: ganhou\n";
                         }
-                        else if(jogos[i].getResultadoFinal() == false){
+                        else if(this.resultadoFinal[i] == -1){
                             extrato += "Situação do jogo: perdeu\n";
                         }
                         else{
-                            System.out.println("O jogador não jogou o jogo Azar");
+                            System.out.println("O jogador não jogou nenhum jogo");
                         }
                     }
                 }
@@ -230,19 +254,20 @@ public abstract class Jogador implements Serializable{
                 for(int i=0; i<10; i++){
                     if(jogos[i] != null && jogos[i] instanceof JogoGeneral){
                         jogo = (JogoGeneral) jogos[i];
+                        setVetorDeResultados(jogo);
                         extrato += "\nJOGO GENERAL: ";
                         extrato += mostrarJogadasExecutadas(jogo);
                         
                         extrato += "\n" + "Valor apostado: " + apostas[i] + "\t\t";
                         
-                        if(jogos[i].getResultadoFinal() == true){
-                            extrato += "\nSituação do jogo: ganhou\n";
+                        if(this.resultadoFinal[i] == 1){
+                            extrato += "Situação do jogo: ganhou\n";
                         }
-                        else if (jogos[i].getResultadoFinal() == false){
-                            extrato += "\n Situação do jogo: perdeu\n";
+                        else if(this.resultadoFinal[i] == -1){
+                            extrato += "Situação do jogo: perdeu\n";
                         }
                         else{
-                            System.out.println("O jogador não jogou o jogo General");
+                            System.out.println("O jogador não jogou nenhum jogo");
                         }
                     }
                 }

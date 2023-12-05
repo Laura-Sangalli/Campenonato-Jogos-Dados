@@ -72,7 +72,7 @@ public class Maquina extends Jogador implements JogarComoMaquina{
             setSaldo(this.saldo);
             System.out.println("\nSaldo: "+ String.format("%.2f", getSaldo()));
         }
-    }
+    } 
 
     // Método para aplicar a estratégia no JogoGeneral
     public void aplicarEstrategia(){
