@@ -53,8 +53,7 @@ public class Maquina extends Jogador implements JogarComoMaquina{
             setSaldo(this.saldo);
 
             // Imprime estatísticas do JogoGeneral e o saldo atual
-            //System.out.println("====== ESTATISTICAS DO JOGO ======");
-            //jogoG.analiseDeJogo();
+
             System.out.println("\nSaldo: "+ String.format("%.2f", getSaldo()));
         }
         // Se o jogo escolhido for JogoAzar (1)

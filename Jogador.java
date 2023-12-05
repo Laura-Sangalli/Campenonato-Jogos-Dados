@@ -73,9 +73,7 @@ public abstract class Jogador implements Serializable{
         for(int i=0; i<6; i++){
             estatistica[i] = 0;
         }
-        
-        //System.out.println("== ESTATISTICA TOTAL JOGADOR ==");
-        
+                
         for(JogoDados jogo : jogos){
             if(jogo != null){
                 for(int i=0; i<6; i++){
@@ -170,6 +168,8 @@ public abstract class Jogador implements Serializable{
         }
     }
 
+    // o vetor de resultados (ResultadoFinal) apontará ganho ou perda do jogo
+    // 1: ganhou; -1: perdeu
     public void setVetorDeResultados(JogoDados jogo){
         for(int i=0; i<10; i++){
             if(resultadoFinal[i] != 1 && resultadoFinal[i] != -1){
@@ -188,7 +188,7 @@ public abstract class Jogador implements Serializable{
     public void setJogo(JogoDados jogo, int i){
         if (jogos[i] == null){
             jogos[i] = jogo;
-            //jogos[i].setResultadoFinal(jogo.getResultadoFinal());
+            
             return;
         }            
     }
@@ -200,7 +200,7 @@ public abstract class Jogador implements Serializable{
             case 1:{ // extrato de todos os jogos 
                 for(int i=0; i<10; i++){
                     if(jogos[i] != null){
-                        //setVetorDeResultados(jogos[i]);
+                     
 
                         if(jogos[i] instanceof JogoGeneral){
                             jogo = (JogoGeneral) jogos[i];
@@ -212,8 +212,7 @@ public abstract class Jogador implements Serializable{
                             extrato += "\nJOGO AZAR: \t";
                             
                             extrato += "Valor apostado: " + apostas[i] + "\t\t";
-                            
-                            //System.out.println(jogos[i].getResultadoFinal());
+                     
                             
                         }
                             if(this.resultadoFinal[i] == 1){
@@ -234,7 +233,7 @@ public abstract class Jogador implements Serializable{
                     if(jogos[i] != null && jogos[i] instanceof JogoAzar){
                         extrato += "\nJOGO AZAR: \t";
                         extrato += "Valor apostado: " + apostas[i] + "\t\t";
-                        //setVetorDeResultados(jogos[i]);
+                
                         
                         
                         if(this.resultadoFinal[i] == 1){
@@ -254,7 +253,7 @@ public abstract class Jogador implements Serializable{
                 for(int i=0; i<10; i++){
                     if(jogos[i] != null && jogos[i] instanceof JogoGeneral){
                         jogo = (JogoGeneral) jogos[i];
-                        //setVetorDeResultados(jogo);
+                     
                         extrato += "\nJOGO GENERAL: ";
                         extrato += mostrarJogadasExecutadas(jogo);
                         
