@@ -39,6 +39,7 @@ public class Maquina extends Jogador implements JogarComoMaquina{
 
             // Verifica se a máquina ganhou ou perdeu o JogoGeneral e ajusta o saldo
             jogoG.resultado();
+            this.setVetorDeResultados(jogoG);
             setJogo(jogoG, getRodadas());
             if (jogoG.getResultadoFinal() == true){
                 System.out.println("O jogador venceu o Jogo General :)\n");
@@ -61,6 +62,7 @@ public class Maquina extends Jogador implements JogarComoMaquina{
             // Simula o resultado do JogoAzar e ajusta o saldo
             jogoA.resultado();
             setJogo(jogoA, getRodadas());
+            setVetorDeResultados(jogoA);
             
             if (jogoA.getResultadoFinal() == true){
                 this.saldo += aposta;

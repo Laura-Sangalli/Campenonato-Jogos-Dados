@@ -73,9 +73,9 @@ public abstract class JogoDados implements Estatistica, Serializable{
              valores += this.dados[i].getSideUp() + " - ";
         } 
         valores += this.dados[numDados - 1].getSideUp();
-        return valores;
+        return valores; 
     } 
-
+ 
     // obtém o vetor estatísica para ser utilizado em outras classes, de forma a proceder com a análise do jogo
     public int[] getEStatistica(){
         return estatistica;

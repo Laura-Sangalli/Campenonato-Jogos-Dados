@@ -30,6 +30,7 @@ public class Humano extends Jogador implements JogarComoHumano{
             }
             jogoG.resultado();
             setJogo(jogoG, getRodadas());
+            setVetorDeResultados(jogoG);
             if(jogoG.getResultadoFinal() == true){
                 System.out.println("O jogador venceu o Jogo General :)\n");
                 this.saldo += aposta;
@@ -49,6 +50,7 @@ public class Humano extends Jogador implements JogarComoHumano{
             
             jogoA.resultado();
             setJogo(jogoA, getRodadas());
+            setVetorDeResultados(jogoA);
             if(jogoA.getResultadoFinal() == true){
                 this.saldo += aposta;
             }

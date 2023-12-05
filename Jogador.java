@@ -200,8 +200,8 @@ public abstract class Jogador implements Serializable{
             case 1:{ // extrato de todos os jogos 
                 for(int i=0; i<10; i++){
                     if(jogos[i] != null){
-                        setVetorDeResultados(jogos[i]);
-                        
+                        //setVetorDeResultados(jogos[i]);
+
                         if(jogos[i] instanceof JogoGeneral){
                             jogo = (JogoGeneral) jogos[i];
                             
@@ -215,6 +215,7 @@ public abstract class Jogador implements Serializable{
                             
                             //System.out.println(jogos[i].getResultadoFinal());
                             
+                        }
                             if(this.resultadoFinal[i] == 1){
                                 extrato += "Situação do jogo: ganhou\n";
                             }
@@ -224,7 +225,6 @@ public abstract class Jogador implements Serializable{
                             else{
                                 System.out.println("O jogador não jogou nenhum jogo");
                             }
-                        }
                     }
                 }
                 break;
@@ -234,7 +234,7 @@ public abstract class Jogador implements Serializable{
                     if(jogos[i] != null && jogos[i] instanceof JogoAzar){
                         extrato += "\nJOGO AZAR: \t";
                         extrato += "Valor apostado: " + apostas[i] + "\t\t";
-                        setVetorDeResultados(jogos[i]);
+                        //setVetorDeResultados(jogos[i]);
                         
                         
                         if(this.resultadoFinal[i] == 1){
@@ -254,7 +254,7 @@ public abstract class Jogador implements Serializable{
                 for(int i=0; i<10; i++){
                     if(jogos[i] != null && jogos[i] instanceof JogoGeneral){
                         jogo = (JogoGeneral) jogos[i];
-                        setVetorDeResultados(jogo);
+                        //setVetorDeResultados(jogo);
                         extrato += "\nJOGO GENERAL: ";
                         extrato += mostrarJogadasExecutadas(jogo);
                         

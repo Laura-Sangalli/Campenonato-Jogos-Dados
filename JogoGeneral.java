@@ -42,13 +42,13 @@ public class JogoGeneral extends JogoDados{
         // se o jogador ganhou
         if(soma > 2*(this.getRodadas(13))){
             // método que registra o ganho ou perda do jogo na superclasse como um valor booleano
-            setResultadoFinal(true);
+            this.setResultadoFinal(true);
         }
         // se o jogador perdeu
-        else{
-            setResultadoFinal(false);
+        else if(soma < 2*(this.getRodadas(13))){
+            this.setResultadoFinal(false);
         } 
-    }
+    } 
 
     
     //verifica se a rodada ja foi escolhida anteriormente

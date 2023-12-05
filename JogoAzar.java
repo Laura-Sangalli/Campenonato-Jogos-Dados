@@ -20,13 +20,13 @@ public class JogoAzar extends JogoDados{
         // Verifica se o jogador ganhou
         if (res == 7 || res == 11){
             System.out.println("O jogador ganhou :)");
-            setResultadoFinal(true);
+            this.setResultadoFinal(true);
             return;
         } 
         // Verifica se o jogador perdeu
         else if (res == 2 || res == 3 || res == 12){
             System.out.println("O jogador perdeu :(");
-            setResultadoFinal(false);
+            this.setResultadoFinal(false);
             return;
         } 
         // Se a soma não é imediatamente ganhadora ou perdedora, continua jogando
@@ -47,14 +47,14 @@ public class JogoAzar extends JogoDados{
                 if (res == res1){
                     System.out.println("O jogador ganhou :)");
                     // atribui o valor true a variavel resutadoFinal, que sera utilizada na montagem do extrato
-                    setResultadoFinal(true);
+                    this.setResultadoFinal(true);
 
                 } 
                 // Verifica se o jogador perdeu
                 else if (res == 2 || res == 3 || res == 12){
                     System.out.println("O jogador perdeu :(");
                      // atribui o valor true a variavel resutadoFinal, que sera utilizada na montagem do extrato
-                    setResultadoFinal(false);
+                    this.setResultadoFinal(false);
 
                 }
             } 
